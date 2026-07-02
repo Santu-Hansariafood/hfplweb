@@ -4,7 +4,6 @@ import { Link, Mail, Sparkles, Quote } from "lucide-react";
 import { motion } from "framer-motion";
 import { Reveal } from "../components/Reveal";
 
-// A tag list per team member — feels editorial, adds density without heavy copy
 const EXPERTISE = {
   "Gopal Agarwal": ["Risk", "Origination", "Strategy"],
   "Sunita Agarwalla": ["Market Intelligence", "Contracts", "Arbitration"],
@@ -22,7 +21,6 @@ const FeaturedCard = ({ member }) => (
     className="lg:col-span-8 group relative overflow-hidden bg-[#FDFBF7] border border-[#E5E0D8]"
   >
     <div className="grid grid-cols-1 md:grid-cols-5 h-full">
-      {/* Photo panel */}
       <div className="md:col-span-3 relative overflow-hidden aspect-[4/5] md:aspect-auto md:min-h-[520px]">
         <img
           src={member.photo}
@@ -34,13 +32,10 @@ const FeaturedCard = ({ member }) => (
           <Sparkles size={12} className="text-[#C48D3F]" />
           <span className="text-[10px] tracking-[0.3em] uppercase text-[#1A1A1A]">Managing Director</span>
         </div>
-        {/* rotating ornament */}
         <div className="absolute bottom-6 right-6 w-24 h-24 rounded-full border border-dashed border-[#FDFBF7]/40 spin-slower pointer-events-none" />
       </div>
 
-      {/* Text panel */}
       <div className="md:col-span-2 p-8 lg:p-10 flex flex-col justify-between bg-[#2C4C3B] text-[#FDFBF7] relative overflow-hidden">
-        {/* Ambient blob */}
         <div className="absolute -top-16 -right-16 w-48 h-48 rounded-full bg-[#C48D3F]/15 blur-2xl pointer-events-none" />
         <div className="relative">
           <Quote size={32} className="text-[#C48D3F] mb-6" />
@@ -164,13 +159,10 @@ const Team = () => {
         subtitle="Principals, arbitrators and operators — our team's experience is the firm's real asset."
       />
 
-      {/* MODERN BENTO */}
       <section className="px-6 md:px-12 lg:px-24 pb-16 lg:pb-24">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-          {/* Featured MD card (spans 8 cols) */}
           {md && <FeaturedCard member={md} />}
 
-          {/* Right stats column (4 cols) */}
           <div className="lg:col-span-4 grid grid-cols-2 lg:grid-cols-1 gap-8">
             <StatCard n="4" label="Core leadership" delay={0.2} />
             <StatCard n="60+" label="Years combined" delay={0.35} />
@@ -178,7 +170,6 @@ const Team = () => {
         </div>
       </section>
 
-      {/* MEMBER GRID */}
       <section className="px-6 md:px-12 lg:px-24 pb-24 lg:pb-32">
         <Reveal className="flex items-end justify-between mb-12">
           <div>
@@ -199,9 +190,7 @@ const Team = () => {
         </div>
       </section>
 
-      {/* JOIN US */}
       <section className="bg-[#2C4C3B] text-[#FDFBF7] px-6 md:px-12 lg:px-24 py-24 lg:py-32 relative overflow-hidden">
-        {/* Ambient blobs */}
         <div className="absolute -top-20 -right-20 w-96 h-96 rounded-full bg-[#C48D3F]/10 blur-3xl animate-blob pointer-events-none" />
         <div className="absolute -bottom-20 -left-20 w-96 h-96 rounded-full bg-[#FDFBF7]/5 blur-3xl animate-blob pointer-events-none" style={{ animationDelay: "3s" }} />
 
