@@ -1,0 +1,286 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Outfit:wght@200;300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body {
+    margin: 0;
+    font-family: 'Outfit', sans-serif;
+    background-color: #FDFBF7;
+    color: #1A1A1A;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+}
+
+::selection {
+    background-color: #C48D3F;
+    color: #FDFBF7;
+}
+
+/* Custom cursor accent */
+a, button, [role="button"] {
+    cursor: pointer;
+}
+
+/* Underline reveal utility */
+.link-underline {
+    background-image: linear-gradient(to right, #C48D3F, #C48D3F);
+    background-size: 0% 1px;
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    transition: background-size 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.link-underline:hover {
+    background-size: 100% 1px;
+}
+
+/* Hover lift utility */
+.hover-lift {
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s ease;
+}
+.hover-lift:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px -20px rgba(26, 26, 26, 0.15);
+}
+
+/* Shimmer overlay */
+.shimmer-overlay {
+    position: relative;
+    overflow: hidden;
+}
+.shimmer-overlay::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent 30%, rgba(196,141,63,0.15) 50%, transparent 70%);
+    transform: translateX(-100%);
+    transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    pointer-events: none;
+}
+.shimmer-overlay:hover::before {
+    transform: translateX(100%);
+}
+
+/* Marquee pause on hover */
+.pause-on-hover:hover .animate-ticker {
+    animation-play-state: paused;
+}
+
+/* Text reveal (word by word) */
+@keyframes textReveal {
+    0% { opacity: 0; transform: translateY(60%); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+.text-reveal > span {
+    display: inline-block;
+    animation: textReveal 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.font-serif-display {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    letter-spacing: -0.02em;
+}
+
+/* Custom shapes for premium commodity cards */
+.shape-arch {
+    border-radius: 9999px 9999px 8px 8px;
+    overflow: hidden;
+}
+.shape-arch-lg {
+    border-radius: 200px 200px 12px 12px;
+    overflow: hidden;
+}
+.shape-circle {
+    border-radius: 9999px;
+    overflow: hidden;
+}
+.shape-squircle {
+    border-radius: 40% 60% 42% 58% / 45% 40% 60% 55%;
+    overflow: hidden;
+    transition: border-radius 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.shape-squircle:hover {
+    border-radius: 55% 45% 60% 40% / 55% 60% 40% 45%;
+}
+.shape-blob {
+    border-radius: 63% 37% 54% 46% / 55% 48% 52% 45%;
+    overflow: hidden;
+    transition: border-radius 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.shape-blob:hover {
+    border-radius: 37% 63% 46% 54% / 48% 55% 45% 52%;
+}
+.shape-hex {
+    clip-path: polygon(50% 0%, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%);
+    overflow: hidden;
+}
+.shape-diamond {
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    overflow: hidden;
+}
+.shape-tab-top {
+    border-radius: 12px 12px 0 0;
+    overflow: hidden;
+}
+
+/* Premium tasteful shapes */
+.shape-leaf {
+    border-radius: 60% 40% 40% 60% / 55% 45% 55% 45%;
+    overflow: hidden;
+    transition: border-radius 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.shape-leaf:hover {
+    border-radius: 40% 60% 60% 40% / 45% 55% 45% 55%;
+}
+.shape-portrait {
+    border-radius: 16px;
+    overflow: hidden;
+}
+.shape-portrait-lg {
+    border-radius: 32px;
+    overflow: hidden;
+}
+.shape-tall-arch {
+    border-radius: 140px 140px 20px 20px;
+    overflow: hidden;
+}
+.shape-tall-arch-flip {
+    border-radius: 20px 20px 140px 140px;
+    overflow: hidden;
+}
+.shape-diagonal {
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 32px), calc(100% - 32px) 100%, 0 100%);
+    overflow: hidden;
+}
+.shape-diagonal-alt {
+    clip-path: polygon(32px 0, 100% 0, 100% 100%, 0 100%, 0 32px);
+    overflow: hidden;
+}
+.shape-oval {
+    border-radius: 50% / 40%;
+    overflow: hidden;
+}
+.shape-capsule {
+    border-radius: 9999px;
+    overflow: hidden;
+}
+
+/* Rotating dashed ring */
+@keyframes spin-slow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+.spin-slow {
+    animation: spin-slow 24s linear infinite;
+}
+.spin-slower {
+    animation: spin-slow 48s linear infinite;
+}
+
+/* Pulse ring */
+@keyframes pulseRing {
+    0% { transform: scale(0.9); opacity: 0.8; }
+    100% { transform: scale(1.3); opacity: 0; }
+}
+.pulse-ring::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    border: 1px solid #C48D3F;
+    animation: pulseRing 2.4s ease-out infinite;
+}
+
+.grain-overlay {
+    position: relative;
+}
+.grain-overlay::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+    opacity: 0.06;
+    pointer-events: none;
+    mix-blend-mode: multiply;
+}
+
+.hairline {
+    border-top: 1px solid #E5E0D8;
+}
+
+@layer base {
+    :root {
+        --background: 38 33% 98%;
+        --foreground: 0 0% 10%;
+        --card: 38 33% 98%;
+        --card-foreground: 0 0% 10%;
+        --popover: 38 33% 98%;
+        --popover-foreground: 0 0% 10%;
+        --primary: 33 53% 51%;
+        --primary-foreground: 0 0% 100%;
+        --secondary: 146 27% 24%;
+        --secondary-foreground: 38 33% 98%;
+        --muted: 39 22% 93%;
+        --muted-foreground: 0 0% 29%;
+        --accent: 39 22% 93%;
+        --accent-foreground: 0 0% 10%;
+        --destructive: 0 84.2% 60.2%;
+        --destructive-foreground: 0 0% 98%;
+        --border: 36 24% 87%;
+        --input: 36 24% 87%;
+        --ring: 33 53% 51%;
+        --chart-1: 33 53% 51%;
+        --chart-2: 146 27% 24%;
+        --chart-3: 197 37% 24%;
+        --chart-4: 43 74% 66%;
+        --chart-5: 27 87% 67%;
+        --radius: 0.125rem;
+    }
+}
+
+@layer base {
+    * {
+        @apply border-border;
+    }
+    body {
+        @apply bg-background text-foreground;
+    }
+}
+
+@layer base {
+    [data-debug-wrapper="true"] {
+        display: contents !important;
+    }
+
+    [data-debug-wrapper="true"] > * {
+        margin-left: inherit;
+        margin-right: inherit;
+        margin-top: inherit;
+        margin-bottom: inherit;
+        padding-left: inherit;
+        padding-right: inherit;
+        padding-top: inherit;
+        padding-bottom: inherit;
+        column-gap: inherit;
+        row-gap: inherit;
+        gap: inherit;
+        border-left-width: inherit;
+        border-right-width: inherit;
+        border-top-width: inherit;
+        border-bottom-width: inherit;
+        border-left-style: inherit;
+        border-right-style: inherit;
+        border-top-style: inherit;
+        border-bottom-style: inherit;
+        border-left-color: inherit;
+        border-right-color: inherit;
+        border-top-color: inherit;
+        border-bottom-color: inherit;
+    }
+}
