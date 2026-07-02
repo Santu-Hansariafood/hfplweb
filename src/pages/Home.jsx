@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { ArrowUpRight, ArrowRight, Phone, Mail, MapPin } from "lucide-react";
 import { COMPANY, COMMODITIES, SERVICES, NEWS, STATS, CATEGORIES, CLIENTS } from "../lib/constants";
 import { Reveal, RevealStagger, RevealItem } from "../components/Reveal";
@@ -14,7 +14,14 @@ const Home = () => {
       {/* HERO */}
       <section className="relative min-h-[100svh] flex items-end pt-28 pb-40 lg:pb-44 overflow-hidden grain-overlay bg-[#1A1A1A]">
         <div className="absolute inset-0 z-0">
-          <img src={HERO_IMG} alt="Wheat field at golden hour" className="w-full h-full object-cover animate-ken-burns" />
+          <img
+            src={HERO_IMG}
+            alt="Wheat field at golden hour"
+            loading="eager"
+            fetchpriority="high"
+            decoding="async"
+            className="w-full h-full object-cover animate-ken-burns"
+          />
           <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A1A]/90 via-[#1A1A1A]/60 to-[#1A1A1A]/35" />
         </div>
 
@@ -51,7 +58,7 @@ const Home = () => {
         <div className="absolute bottom-0 left-0 right-0 bg-[#FDFBF7]/95 backdrop-blur-sm border-t border-[#E5E0D8]">
           <div className="px-6 md:px-12 lg:px-24 py-5 grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-0 md:divide-x divide-[#E5E0D8]">
             {STATS.map((s, i) => (
-              <motion.div
+              <m.div
                 key={s.label}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -60,7 +67,7 @@ const Home = () => {
               >
                 <CountUp value={s.value} className="font-serif-display text-3xl md:text-4xl text-[#1A1A1A] leading-none block" />
                 <div className="text-[11px] tracking-[0.2em] uppercase text-[#4A4A4A] mt-2">{s.label}</div>
-              </motion.div>
+              </m.div>
             ))}
           </div>
         </div>
@@ -156,6 +163,8 @@ const Home = () => {
                     <img
                       src={c.image}
                       alt={c.name}
+                      loading="lazy"
+                      decoding="async"
                       className="w-full h-full object-cover transition-transform duration-[1400ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-125"
                     />
                     {/* Bottom gradient */}
@@ -216,7 +225,13 @@ const Home = () => {
             <RevealItem key={s.title}>
               <div data-testid={`service-card-${i}`} className="group border border-[#E5E0D8] bg-[#FDFBF7] flex flex-col hover-lift h-full">
                 <div className="aspect-[4/3] overflow-hidden">
-                  <img src={s.image} alt={s.title} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-[900ms] group-hover:scale-110" />
+                  <img
+                    src={s.image}
+                    alt={s.title}
+                    loading="lazy"
+                    decoding="async"
+                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-[900ms] group-hover:scale-110"
+                  />
                 </div>
                 <div className="p-8 flex-1 flex flex-col">
                   <div className="text-[10px] tracking-[0.3em] uppercase text-[#C48D3F] mb-3">0{i + 1}</div>

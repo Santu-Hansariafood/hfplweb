@@ -44,6 +44,7 @@ export const Navbar = () => {
           <img
             src={COMPANY.logo}
             alt="Hansaria Food — Farm 2 Factory"
+            decoding="async"
             className="h-9 sm:h-10 md:h-12 w-auto object-contain"
             style={{ mixBlendMode: "multiply" }}
           />

@@ -1,7 +1,7 @@
 import { PageHeader, Breadcrumb } from "../components/PageHeader";
 import { TEAM } from "../lib/constants";
 import { Link, Mail, Sparkles, Quote } from "lucide-react";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { Reveal } from "../components/Reveal";
 
 const EXPERTISE = {
@@ -12,7 +12,7 @@ const EXPERTISE = {
 };
 
 const FeaturedCard = ({ member }) => (
-  <motion.article
+  <m.article
     data-testid={`team-featured-${member.name.toLowerCase().replace(/\s+/g, "-")}`}
     initial={{ opacity: 0, y: 40 }}
     whileInView={{ opacity: 1, y: 0 }}
@@ -25,6 +25,7 @@ const FeaturedCard = ({ member }) => (
         <img
           src={member.photo}
           alt={member.name}
+          decoding="async"
           className="w-full h-full object-cover transition-transform duration-[1400ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-105"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A1A]/60 via-transparent to-transparent" />
@@ -64,11 +65,11 @@ const FeaturedCard = ({ member }) => (
         </div>
       </div>
     </div>
-  </motion.article>
+  </m.article>
 );
 
 const StatCard = ({ n, label, delay = 0 }) => (
-  <motion.div
+  <m.div
     initial={{ opacity: 0, y: 30 }}
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true }}
@@ -80,11 +81,11 @@ const StatCard = ({ n, label, delay = 0 }) => (
       <div className="font-serif-display text-5xl lg:text-6xl text-[#C48D3F] leading-none">{n}</div>
       <div className="text-[10px] tracking-[0.3em] uppercase text-[#4A4A4A] mt-4">{label}</div>
     </div>
-  </motion.div>
+  </m.div>
 );
 
 const MemberCard = ({ member, index }) => (
-  <motion.article
+  <m.article
     data-testid={`team-card-${member.name.toLowerCase().replace(/\s+/g, "-")}`}
     initial={{ opacity: 0, y: 40 }}
     whileInView={{ opacity: 1, y: 0 }}
@@ -100,6 +101,8 @@ const MemberCard = ({ member, index }) => (
       <img
         src={member.photo}
         alt={member.name}
+        loading="lazy"
+        decoding="async"
         className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-110"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A1A]/70 via-transparent to-transparent" />
@@ -143,7 +146,7 @@ const MemberCard = ({ member, index }) => (
         </div>
       </div>
     </div>
-  </motion.article>
+  </m.article>
 );
 
 const Team = () => {

@@ -1,4 +1,4 @@
-import { motion, useInView } from "framer-motion";
+import { m, useInView } from "framer-motion";
 import { useRef } from "react";
 
 export const Reveal = ({ children, delay = 0, y = 30, className = "", once = true }) => {
@@ -6,7 +6,7 @@ export const Reveal = ({ children, delay = 0, y = 30, className = "", once = tru
   const inView = useInView(ref, { once, margin: "-80px 0px" });
 
   return (
-    <motion.div
+    <m.div
       ref={ref}
       initial={{ opacity: 0, y }}
       animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y }}
@@ -14,12 +14,12 @@ export const Reveal = ({ children, delay = 0, y = 30, className = "", once = tru
       className={className}
     >
       {children}
-    </motion.div>
+    </m.div>
   );
 };
 
 export const RevealStagger = ({ children, className = "" }) => (
-  <motion.div
+  <m.div
     initial="hidden"
     whileInView="visible"
     viewport={{ once: true, margin: "-80px 0px" }}
@@ -30,11 +30,11 @@ export const RevealStagger = ({ children, className = "" }) => (
     className={className}
   >
     {children}
-  </motion.div>
+  </m.div>
 );
 
 export const RevealItem = ({ children, className = "" }) => (
-  <motion.div
+  <m.div
     variants={{
       hidden: { opacity: 0, y: 30 },
       visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] } },
@@ -42,5 +42,5 @@ export const RevealItem = ({ children, className = "" }) => (
     className={className}
   >
     {children}
-  </motion.div>
+  </m.div>
 );

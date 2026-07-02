@@ -6,7 +6,7 @@ export const PageHeader = ({ eyebrow, title, subtitle, image }) => {
       {image && (
         <>
           <div className="absolute inset-0 z-0">
-            <img src={image} alt="" className="w-full h-full object-cover" />
+            <img src={image} alt="" loading="lazy" decoding="async" className="w-full h-full object-cover" />
             <div className="absolute inset-0 bg-[#FDFBF7]/85" />
           </div>
         </>

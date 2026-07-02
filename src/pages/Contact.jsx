@@ -3,7 +3,7 @@ import { useState } from "react";
 import { COMPANY } from "../lib/constants";
 import { Phone, Mail, MapPin, ArrowRight, Clock, Send, User, Building2, MessageCircle, Sparkles } from "lucide-react";
 import { toast } from "sonner";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { Reveal } from "../components/Reveal";
 
 const ENQUIRY_TYPES = [
@@ -157,7 +157,7 @@ const Contact = () => {
 
           {/* Premium form */}
           <div className="lg:col-span-8">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -256,7 +256,7 @@ const Contact = () => {
                   </button>
                 </div>
               </form>
-            </motion.div>
+            </m.div>
           </div>
         </div>
       </section>

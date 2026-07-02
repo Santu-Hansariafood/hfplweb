@@ -2,7 +2,7 @@ import { PageHeader, Breadcrumb } from "../components/PageHeader";
 import { SERVICES } from "../lib/constants";
 import { Link } from "react-router-dom";
 import { ArrowUpRight, Check, Globe2, LineChart, Handshake, Compass, Package, Truck, FileCheck } from "lucide-react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { m, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { Reveal, RevealStagger, RevealItem } from "../components/Reveal";
 
@@ -17,9 +17,11 @@ const ParallaxImage = ({ src, alt }) => {
   const scale = useTransform(scrollYProgress, [0, 0.5, 1], [1.05, 1, 1.05]);
   return (
     <div ref={ref} className="aspect-[4/3] overflow-hidden relative">
-      <motion.img
+      <m.img
         src={src}
         alt={alt}
+        loading="lazy"
+        decoding="async"
         style={{ y, scale }}
         className="w-full h-full object-cover"
       />
@@ -32,7 +34,7 @@ const ServiceRow = ({ s, i }) => {
   const Icon = SERVICE_ICONS[i] || Globe2;
   const reverse = i % 2 === 1;
   return (
-    <motion.article
+    <m.article
       data-testid={`service-detail-${i}`}
       initial={{ opacity: 0, y: 60 }}
       whileInView={{ opacity: 1, y: 0 }}
@@ -63,7 +65,7 @@ const ServiceRow = ({ s, i }) => {
       <div className="lg:col-span-6">
         <div className="flex items-start gap-6 mb-6">
           {/* Animated icon block */}
-          <motion.div
+          <m.div
             initial={{ rotate: -8, scale: 0.8, opacity: 0 }}
             whileInView={{ rotate: 0, scale: 1, opacity: 1 }}
             viewport={{ once: true }}
@@ -71,10 +73,10 @@ const ServiceRow = ({ s, i }) => {
             className="w-16 h-16 border border-[#E5E0D8] flex items-center justify-center bg-[#FDFBF7] group-hover:bg-[#C48D3F] group-hover:border-[#C48D3F] group-hover:rotate-6 transition-all duration-500"
           >
             <Icon size={22} className="text-[#C48D3F] group-hover:text-[#FDFBF7] transition-colors duration-500" />
-          </motion.div>
+          </m.div>
 
           <div className="flex-1">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -82,7 +84,7 @@ const ServiceRow = ({ s, i }) => {
               className="font-serif-display text-6xl lg:text-7xl leading-none text-[#C48D3F]/25 group-hover:text-[#C48D3F]/70 transition-colors duration-700"
             >
               0{i + 1}
-            </motion.div>
+            </m.div>
           </div>
         </div>
 
@@ -97,7 +99,7 @@ const ServiceRow = ({ s, i }) => {
             "Pre-shipment inspection and quality conformance",
             "Transparent contract documentation",
           ].map((p, k) => (
-            <motion.li
+            <m.li
               key={p}
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -109,7 +111,7 @@ const ServiceRow = ({ s, i }) => {
                 <Check size={11} className="text-[#C48D3F]" />
               </span>
               {p}
-            </motion.li>
+            </m.li>
           ))}
         </ul>
 
@@ -120,7 +122,7 @@ const ServiceRow = ({ s, i }) => {
           Discuss your requirement <ArrowUpRight size={14} />
         </Link>
       </div>
-    </motion.article>
+    </m.article>
   );
 };
 
@@ -164,7 +166,7 @@ const Services = () => {
         <div className="relative mt-16 lg:mt-20">
           {/* Horizontal dashed spine (desktop) */}
           <div className="hidden lg:block absolute left-0 right-0 top-8 h-px">
-            <motion.div
+            <m.div
               initial={{ scaleX: 0 }}
               whileInView={{ scaleX: 1 }}
               viewport={{ once: true, margin: "-40px" }}
@@ -179,7 +181,7 @@ const Services = () => {
               const Icon = STEP_ICONS[step.n];
               return (
                 <RevealItem key={step.n}>
-                  <motion.div
+                  <m.div
                     whileHover={{ y: -8 }}
                     transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
                     data-testid={`step-${step.n}`}
@@ -209,7 +211,7 @@ const Services = () => {
                       </div>
                       <p className="text-sm text-[#FDFBF7]/75 leading-relaxed">{step.d}</p>
                     </div>
-                  </motion.div>
+                  </m.div>
                 </RevealItem>
               );
             })}

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { ArrowUp } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import { m, AnimatePresence } from "framer-motion";
 
 export const ScrollToTop = () => {
   const [visible, setVisible] = useState(false);
@@ -25,7 +25,7 @@ export const ScrollToTop = () => {
   return (
     <AnimatePresence>
       {visible && (
-        <motion.button
+        <m.button
           data-testid="scroll-to-top"
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           aria-label="Scroll to top"
@@ -56,7 +56,7 @@ export const ScrollToTop = () => {
           <span className="absolute inset-0 flex items-center justify-center">
             <ArrowUp size={18} className="text-[#C48D3F] transition-transform duration-500 group-hover:-translate-y-0.5" />
           </span>
-        </motion.button>
+        </m.button>
       )}
     </AnimatePresence>
   );

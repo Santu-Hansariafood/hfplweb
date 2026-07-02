@@ -30,7 +30,7 @@ const Clients = () => {
       <section className="bg-[#F2F0EA] px-6 md:px-12 lg:px-24 py-24 lg:py-32 grain-overlay">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
           <div className="lg:col-span-6">
-            <img src={HANDSHAKE} alt="" className="w-full h-[480px] object-cover" />
+            <img src={HANDSHAKE} alt="" loading="lazy" decoding="async" className="w-full h-[480px] object-cover" />
           </div>
           <div className="lg:col-span-6 space-y-6">
             <div className="text-[10px] tracking-[0.3em] uppercase text-[#C48D3F]">Testimonial</div>

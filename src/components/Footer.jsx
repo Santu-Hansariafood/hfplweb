@@ -14,6 +14,7 @@ export const Footer = () => {
                 <img
                   src={COMPANY.logo}
                   alt="Hansaria Food"
+                  decoding="async"
                   className="w-full h-full object-contain"
                   style={{ mixBlendMode: "multiply" }}
                 />

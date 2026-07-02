@@ -21,7 +21,13 @@ const About = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
           <div className="lg:col-span-6 overflow-hidden">
             <Reveal>
-              <img src={TEAM_IMG} alt="Team" className="w-full h-[560px] object-cover hover:scale-105 transition-transform duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)]" />
+              <img
+                src={TEAM_IMG}
+                alt="Team"
+                loading="lazy"
+                decoding="async"
+                className="w-full h-[560px] object-cover hover:scale-105 transition-transform duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)]"
+              />
             </Reveal>
           </div>
           <div className="lg:col-span-6 space-y-6 text-[#4A4A4A] leading-relaxed">
@@ -81,7 +87,7 @@ const About = () => {
 
       <section className="relative px-6 md:px-12 lg:px-24 py-24 lg:py-32 grain-overlay bg-[#1A1A1A] overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <img src={SILO} alt="" className="w-full h-full object-cover opacity-50" />
+          <img src={SILO} alt="" loading="lazy" decoding="async" className="w-full h-full object-cover opacity-50" />
           <div className="absolute inset-0 bg-[#1A1A1A]/70" />
         </div>
         <div className="relative z-10 text-center max-w-3xl mx-auto">
