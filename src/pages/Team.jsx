@@ -6,10 +6,10 @@ import { Reveal } from "../components/Reveal";
 
 // A tag list per team member — feels editorial, adds density without heavy copy
 const EXPERTISE = {
-  "Rohan Hansaria": ["Risk", "Origination", "Strategy"],
-  "Anita Sharma": ["Oil Seeds", "Contracts", "Arbitration"],
-  "Vikram Singh": ["Rail-Port", "Fleet", "Freight"],
-  "Priya Iyer": ["Analytics", "Weather", "Policy"],
+  "Gopal Agarwal": ["Risk", "Origination", "Strategy"],
+  "Sunita Agarwalla": ["Market Intelligence", "Contracts", "Arbitration"],
+  "Prince Surana": ["Commodities", "Contracts", "Market Analysis"],
+  "Uttam Das": ["Accounting", "Warehousing", "Payments"],
 };
 
 const FeaturedCard = ({ member }) => (

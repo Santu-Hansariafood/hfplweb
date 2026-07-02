@@ -1,5 +1,5 @@
 export const COMPANY = {
-  name: "Hansaria Foods",
+  name: "Hansaria Food",
   tagline: "Bridging Harvests, Building Trust",
   phone: "+91-83369-24060",
   phoneRaw: "+918336924060",
@@ -91,39 +91,39 @@ export const SERVICES = [
 
 export const TEAM = [
   {
-    name: "Rohan Hansaria",
-    role: "Managing Director",
+    name: "Gopal Agarwal",
+    role: "Director and Founder",
     bio: "Two decades in physical commodities. Architect of the firm's risk and logistics playbook.",
     photo: "https://images.unsplash.com/photo-1560250097-0b93528c311a?crop=faces&fit=crop&w=600&h=600&q=80",
     level: 0,
   },
   {
-    name: "Anita Sharma",
+    name: "Sunita Agarwalla",
     role: "Head — Trading Desk",
     bio: "Oil seeds and feed supplement specialist. Former arbitrator with the Solvent Extractors' Association.",
     photo: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?crop=faces&fit=crop&w=600&h=600&q=80",
     level: 1,
   },
   {
-    name: "Vikram Singh",
-    role: "Head — Logistics",
+    name: "Prince Surana",
+    role: "Head — Market Analysis",
     bio: "Builds the rail-road-port corridors that keep our cargoes moving on schedule.",
     photo: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?crop=faces&fit=crop&w=600&h=600&q=80",
     level: 1,
   },
   {
-    name: "Priya Iyer",
-    role: "Market Intelligence Lead",
-    bio: "Quantitative analyst tracking weather, freight, and policy across nine origin markets.",
+    name: "Uttam Das",
+    role: "Head — Finance",
+    bio: "Manages the financial aspects of our operations, ensuring compliance and optimal resource allocation.",
     photo: "https://images.unsplash.com/photo-1580489944761-15a19d654956?crop=faces&fit=crop&w=600&h=600&q=80",
     level: 1,
   },
 ];
 
 export const CLIENTS = [
-  "Adani Wilmar", "Cargill India", "ITC Foods", "Patanjali", "Godrej Agrovet",
-  "Britannia", "Suguna Foods", "Venky's", "Nestlé India", "VKL Spices",
-  "Avanti Feeds", "Olam Agri",
+  "PREMIUM CHICK FEEDS PVT LTD", "SUGUNA FOODS PRIVATE LIMITED", "SHALIMAR PELLET FEEDS LTD", "SONAVETS PVT LTD", "GODREJ AGROVET LTD",
+  "JAPFA COMFEED INDIA PVT LTD", "ABIS EXPORTS INDIA PVT LTD", "VENKY'S (INDIA) LIMITED", "ITC LIMITED", "Farmart india pvt ltd", 
+  "GUJARAT AMBUJA EXPORTS LTD", "RELIANCE RETAIL LTD",
 ];
 
 export const NEWS = [
@@ -150,6 +150,6 @@ export const NEWS = [
 export const STATS = [
   { value: "20+", label: "Years in physical trade" },
   { value: "9", label: "Origin markets" },
-  { value: "120k", label: "MT shipped annually" },
+  { value: "120M", label: "MT shipped annually" },
   { value: "300+", label: "Counterparty relationships" },
 ];
