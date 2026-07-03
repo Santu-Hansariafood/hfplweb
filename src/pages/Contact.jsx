@@ -20,7 +20,7 @@ const Field = ({ label, testId, value, onChange, type = "text", icon: Icon, requ
   return (
     <label className="block relative group">
       <span
-        className={`absolute left-11 pointer-events-none transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+        className={`absolute left-11 pointer-events-none transition-all duration-300 ease-custom ${
           active
             ? "top-1.5 text-[9px] tracking-[0.3em] uppercase text-[#C48D3F]"
             : "top-1/2 -translate-y-1/2 text-sm text-[#4A4A4A]"
@@ -47,7 +47,7 @@ const Field = ({ label, testId, value, onChange, type = "text", icon: Icon, requ
         placeholder={active ? placeholder : ""}
         className="w-full bg-transparent border border-[#E5E0D8] pl-11 pr-4 pt-6 pb-2.5 text-sm text-[#1A1A1A] focus:outline-none focus:border-[#C48D3F] transition-colors placeholder-[#4A4A4A]/60"
       />
-      <span className="absolute bottom-0 left-0 h-[2px] bg-[#C48D3F] w-0 group-focus-within:w-full transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]" />
+      <span className="absolute bottom-0 left-0 h-[2px] bg-[#C48D3F] w-0 group-focus-within:w-full transition-all duration-500 ease-custom" />
     </label>
   );
 };
@@ -233,7 +233,7 @@ const Contact = () => {
                     placeholder="Volume, specification, timeline, destination…"
                     className="w-full bg-transparent border border-[#E5E0D8] pl-11 pr-4 pt-10 pb-3 text-sm text-[#1A1A1A] focus:outline-none focus:border-[#C48D3F] transition-colors resize-none placeholder-[#4A4A4A]/60"
                   />
-                  <span className="absolute bottom-0 left-0 h-[2px] bg-[#C48D3F] w-0 group-focus-within:w-full transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]" />
+                  <span className="absolute bottom-0 left-0 h-[2px] bg-[#C48D3F] w-0 group-focus-within:w-full transition-all duration-500 ease-custom" />
                 </div>
 
                 <div className="md:col-span-2 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 pt-2">
@@ -245,7 +245,7 @@ const Contact = () => {
                     type="submit"
                     className="group relative inline-flex items-center gap-3 px-8 py-4 bg-[#1A1A1A] text-[#FDFBF7] text-sm tracking-wide overflow-hidden self-start"
                   >
-                    <span className="absolute inset-0 bg-[#C48D3F] translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]" />
+                    <span className="absolute inset-0 bg-[#C48D3F] translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-custom" />
                     <span className="relative flex items-center gap-3">
                       Send enquiry
                       <span className="w-6 h-6 rounded-full bg-[#FDFBF7]/15 flex items-center justify-center group-hover:bg-[#FDFBF7]/25 transition-colors">

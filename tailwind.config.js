@@ -16,6 +16,14 @@ module.exports = {
         md: 'calc(var(--radius) - 2px)',
         sm: 'calc(var(--radius) - 4px)'
       },
+      transitionDuration: {
+        '900': '900ms',
+        '1200': '1200ms',
+        '1400': '1400ms',
+      },
+      transitionTimingFunction: {
+        'custom': 'cubic-bezier(0.16, 1, 0.3, 1)',
+      },
       colors: {
         brand: {
           bg: '#FDFBF7',

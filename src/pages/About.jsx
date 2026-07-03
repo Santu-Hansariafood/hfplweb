@@ -26,7 +26,7 @@ const About = () => {
                 alt="Team"
                 loading="lazy"
                 decoding="async"
-                className="w-full h-[560px] object-cover hover:scale-105 transition-transform duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)]"
+                className="w-full h-[560px] object-cover hover:scale-105 transition-transform duration-1200 ease-custom"
               />
             </Reveal>
           </div>

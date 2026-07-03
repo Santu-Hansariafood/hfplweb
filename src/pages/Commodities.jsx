@@ -66,7 +66,7 @@ const CommodityCard = ({ c, i }) => {
                 alt={c.name}
                 loading="lazy"
                 decoding="async"
-                className="w-full h-full object-cover transition-transform duration-[1400ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-125"
+                className="w-full h-full object-cover transition-transform duration-1400 ease-custom group-hover:scale-125"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A1A]/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
             </div>
@@ -105,7 +105,7 @@ const CommodityCard = ({ c, i }) => {
             to="/contact"
             className="inline-flex items-center gap-3 px-6 py-3.5 bg-[#1A1A1A] text-[#FDFBF7] text-sm tracking-wide relative overflow-hidden group/btn"
           >
-            <span className="absolute inset-0 bg-[#C48D3F] translate-y-full group-hover/btn:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]" />
+            <span className="absolute inset-0 bg-[#C48D3F] translate-y-full group-hover/btn:translate-y-0 transition-transform duration-500 ease-custom" />
             <span className="relative flex items-center gap-3">
               Enquire about {c.name}
               <ArrowUpRight size={16} className="transition-transform group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1" />

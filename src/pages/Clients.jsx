@@ -19,7 +19,7 @@ const Clients = () => {
           {CLIENTS.map((c, i) => (
             <RevealItem key={c}>
               <div data-testid={`client-${i}`} className="bg-[#FDFBF7] aspect-[4/3] flex items-center justify-center p-6 hover:bg-[#2C4C3B] hover:text-[#FDFBF7] transition-all duration-500 group cursor-pointer relative overflow-hidden">
-                <span className="absolute inset-0 bg-[#C48D3F] scale-y-0 group-hover:scale-y-100 origin-bottom transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]" />
+                <span className="absolute inset-0 bg-[#C48D3F] scale-y-0 group-hover:scale-y-100 origin-bottom transition-transform duration-500 ease-custom" />
                 <span className="font-serif-display text-xl lg:text-2xl text-[#1A1A1A] group-hover:text-[#FDFBF7] text-center relative z-10 transition-colors duration-500">{c}</span>
               </div>
             </RevealItem>

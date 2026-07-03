@@ -1,9 +1,10 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { lazy } from "react";
+import { lazy, useEffect, Suspense } from "react";
 import { Toaster } from "sonner";
 import { Layout } from "./components/Layout";
 import { Helmet } from "react-helmet-async";
 import { COMPANY } from "./lib/constants";
+import { Loading } from "./components/Loading";
 import Home from "./pages/Home";
 
 const About = lazy(() => import("./pages/About"));
@@ -15,6 +16,25 @@ const Contact = lazy(() => import("./pages/Contact"));
 const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
 const Disclaimer = lazy(() => import("./pages/Disclaimer"));
 const TermsOfUse = lazy(() => import("./pages/TermsOfUse"));
+
+// Smart prefetch function that initiates prefetching when idle
+const prefetchOnIdle = () => {
+  if ('requestIdleCallback' in window) {
+    requestIdleCallback(() => {
+      // Prefetch common routes when idle
+      import("./pages/About");
+      import("./pages/Commodities");
+      import("./pages/Services");
+    }, { timeout: 3000 });
+  } else {
+    // Fallback to setTimeout
+    setTimeout(() => {
+      import("./pages/About");
+      import("./pages/Commodities");
+      import("./pages/Services");
+    }, 2000);
+  }
+};
 
 const SITE_URL = import.meta.env.VITE_SITE_URL || "https://hansariafood.com";
 
@@ -43,6 +63,11 @@ function Seo({ title, description, path }) {
 }
 
 function App() {
+  useEffect(() => {
+    // Prefetch common routes when the app is idle
+    prefetchOnIdle();
+  }, []);
+
   return (
     <div className="App">
       <BrowserRouter>
@@ -64,106 +89,124 @@ function App() {
             <Route
               path="/about"
               element={
-                <>
-                  <Seo
-                    title="About"
-                    description="Learn about Hansaria Food: a disciplined trading desk built on decades of commodity, logistics and market experience."
-                    path="/about"
-                  />
-                  <About />
-                </>
+                <Suspense fallback={<Loading />}>
+                  <>
+                    <Seo
+                      title="About"
+                      description="Learn about Hansaria Food: a disciplined trading desk built on decades of commodity, logistics and market experience."
+                      path="/about"
+                    />
+                    <About />
+                  </>
+                </Suspense>
               }
             />
             <Route
               path="/commodities"
               element={
-                <>
-                  <Seo
-                    title="Commodities"
-                    description="Explore our core traded commodities including maize, wheat, broken rice, millet, soya bean D.O.C. and mustard D.O.C."
-                    path="/commodities"
-                  />
-                  <Commodities />
-                </>
+                <Suspense fallback={<Loading />}>
+                  <>
+                    <Seo
+                      title="Commodities"
+                      description="Explore our core traded commodities including maize, wheat, broken rice, millet, soya bean D.O.C. and mustard D.O.C."
+                      path="/commodities"
+                    />
+                    <Commodities />
+                  </>
+                </Suspense>
               }
             />
             <Route
               path="/services"
               element={
-                <>
-                  <Seo
-                    title="Services"
-                    description="Our services cover international presence, market intelligence analysis and principal-grade execution."
-                    path="/services"
-                  />
-                  <Services />
-                </>
+                <Suspense fallback={<Loading />}>
+                  <>
+                    <Seo
+                      title="Services"
+                      description="Our services cover international presence, market intelligence analysis and principal-grade execution."
+                      path="/services"
+                    />
+                    <Services />
+                  </>
+                </Suspense>
               }
             />
             <Route
               path="/clients"
               element={
-                <>
-                  <Seo
-                    title="Clients"
-                    description="Clients we support across trading, feed, distilleries and processing with reliable delivery and quality conformance."
-                    path="/clients"
-                  />
-                  <Clients />
-                </>
+                <Suspense fallback={<Loading />}>
+                  <>
+                    <Seo
+                      title="Clients"
+                      description="Clients we support across trading, feed, distilleries and processing with reliable delivery and quality conformance."
+                      path="/clients"
+                    />
+                    <Clients />
+                  </>
+                </Suspense>
               }
             />
             <Route
               path="/team"
               element={
-                <>
-                  <Seo
-                    title="Team"
-                    description="Meet the Hansaria Food team driving commodity trading, risk management and logistics execution."
-                    path="/team"
-                  />
-                  <Team />
-                </>
+                <Suspense fallback={<Loading />}>
+                  <>
+                    <Seo
+                      title="Team"
+                      description="Meet the Hansaria Food team driving commodity trading, risk management and logistics execution."
+                      path="/team"
+                    />
+                    <Team />
+                  </>
+                </Suspense>
               }
             />
             <Route
               path="/contact"
               element={
-                <>
-                  <Seo
-                    title="Contact"
-                    description="Get in touch with Hansaria Food for commodity enquiries, quotes and partnerships."
-                    path="/contact"
-                  />
-                  <Contact />
-                </>
+                <Suspense fallback={<Loading />}>
+                  <>
+                    <Seo
+                      title="Contact"
+                      description="Get in touch with Hansaria Food for commodity enquiries, quotes and partnerships."
+                      path="/contact"
+                    />
+                    <Contact />
+                  </>
+                </Suspense>
               }
             />
             <Route
               path="/privacy-policy"
               element={
-                <>
-                  <Seo title="Privacy Policy" description="Read the Hansaria Food privacy policy." path="/privacy-policy" />
-                  <PrivacyPolicy />
-                </>
+                <Suspense fallback={<Loading />}>
+                  <>
+                    <Seo title="Privacy Policy" description="Read the Hansaria Food privacy policy." path="/privacy-policy" />
+                    <PrivacyPolicy />
+                  </>
+                </Suspense>
               }
             />
             <Route
               path="/disclaimer"
               element={
-                <>
-                  <Seo title="Disclaimer" description="Read the Hansaria Food disclaimer." path="/disclaimer" />
-                  <Disclaimer />
-                </>
+                <Suspense fallback={<Loading />}>
+                  <>
+                    <Seo title="Disclaimer" description="Read the Hansaria Food disclaimer." path="/disclaimer" />
+                    <Disclaimer />
+                  </>
+                </Suspense>
               }
             />
             <Route
               path="/terms-of-use"
               element={
-                <>
-                  <Seo title="Terms of Use" description="Read the Hansaria Food terms of use." path="/terms-of-use" />
-                  <TermsOfUse />
-                </>
+                <Suspense fallback={<Loading />}>
+                  <>
+                    <Seo title="Terms of Use" description="Read the Hansaria Food terms of use." path="/terms-of-use" />
+                    <TermsOfUse />
+                  </>
+                </Suspense>
               }
             />
             <Route

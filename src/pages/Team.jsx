@@ -26,7 +26,7 @@ const FeaturedCard = ({ member }) => (
           src={member.photo}
           alt={member.name}
           decoding="async"
-          className="w-full h-full object-cover transition-transform duration-[1400ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-105"
+          className="w-full h-full object-cover transition-transform duration-1400 ease-custom group-hover:scale-105"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A1A]/60 via-transparent to-transparent" />
         <div className="absolute top-6 left-6 flex items-center gap-2 bg-[#FDFBF7]/95 backdrop-blur-sm px-3 py-1.5">
@@ -94,7 +94,7 @@ const MemberCard = ({ member, index }) => (
     className="group relative bg-[#FDFBF7] border border-[#E5E0D8] overflow-hidden hover:border-[#C48D3F] transition-all duration-500"
   >
     {/* Sliding gold accent at the top */}
-    <span className="absolute top-0 left-0 right-0 h-[3px] bg-[#C48D3F] scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] z-10" />
+    <span className="absolute top-0 left-0 right-0 h-[3px] bg-[#C48D3F] scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-700 ease-custom z-10" />
 
     {/* Photo */}
     <div className="relative aspect-[4/5] overflow-hidden">
@@ -103,7 +103,7 @@ const MemberCard = ({ member, index }) => (
         alt={member.name}
         loading="lazy"
         decoding="async"
-        className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-110"
+        className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1200 ease-custom group-hover:scale-110"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A1A]/70 via-transparent to-transparent" />
 
@@ -213,7 +213,7 @@ const Team = () => {
               data-testid="team-careers-cta"
               className="inline-flex items-center gap-2 px-6 py-3.5 bg-[#C48D3F] text-[#FDFBF7] text-sm tracking-wide relative overflow-hidden group"
             >
-              <span className="absolute inset-0 bg-[#FDFBF7] translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]" />
+              <span className="absolute inset-0 bg-[#FDFBF7] translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-custom" />
               <span className="relative group-hover:text-[#1A1A1A] transition-colors duration-500">Send your resume</span>
             </a>
           </Reveal>

@@ -18,7 +18,7 @@ const Home = () => {
             src={HERO_IMG}
             alt="Wheat field at golden hour"
             loading="eager"
-            fetchpriority="high"
+            fetchPriority="high"
             decoding="async"
             className="w-full h-full object-cover animate-ken-burns"
           />
@@ -43,11 +43,11 @@ const Home = () => {
             </p>
             <div className="flex flex-wrap gap-4">
               <Link data-testid="hero-cta-primary" to="/commodities" className="group relative inline-flex items-center gap-2 px-6 py-3.5 bg-[#C48D3F] text-[#FDFBF7] text-sm tracking-wide overflow-hidden">
-                <span className="absolute inset-0 bg-[#A67430] translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]" />
+                <span className="absolute inset-0 bg-[#A67430] translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-custom" />
                 <span className="relative flex items-center gap-2">Explore commodities <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" /></span>
               </Link>
               <Link data-testid="hero-cta-secondary" to="/contact" className="group relative inline-flex items-center gap-2 px-6 py-3.5 border border-[#FDFBF7]/40 text-[#FDFBF7] text-sm tracking-wide overflow-hidden">
-                <span className="absolute inset-0 bg-[#FDFBF7] translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]" />
+                <span className="absolute inset-0 bg-[#FDFBF7] translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-custom" />
                 <span className="relative group-hover:text-[#1A1A1A] transition-colors duration-500">Request a quote</span>
               </Link>
             </div>
@@ -156,7 +156,7 @@ const Home = () => {
                 {/* Card body */}
                 <div className="bg-[#FDFBF7] border border-[#E5E0D8] group-hover:border-[#C48D3F] transition-all duration-500 h-full flex flex-col overflow-hidden relative">
                   {/* Gold accent line that draws across the top */}
-                  <span className="absolute top-0 left-0 h-[3px] bg-[#C48D3F] w-0 group-hover:w-full transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] z-10" />
+                  <span className="absolute top-0 left-0 h-[3px] bg-[#C48D3F] w-0 group-hover:w-full transition-all duration-700 ease-custom z-10" />
 
                   {/* Image */}
                   <div className="relative aspect-[5/4] overflow-hidden">
@@ -165,7 +165,7 @@ const Home = () => {
                       alt={c.name}
                       loading="lazy"
                       decoding="async"
-                      className="w-full h-full object-cover transition-transform duration-[1400ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-125"
+                      className="w-full h-full object-cover transition-transform duration-1400 ease-custom group-hover:scale-125"
                     />
                     {/* Bottom gradient */}
                     <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A1A]/50 via-transparent to-transparent" />
@@ -230,7 +230,7 @@ const Home = () => {
                     alt={s.title}
                     loading="lazy"
                     decoding="async"
-                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-[900ms] group-hover:scale-110"
+                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-900 group-hover:scale-110"
                   />
                 </div>
                 <div className="p-8 flex-1 flex flex-col">

@@ -1,7 +1,33 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { Menu, X, Phone, Mail } from "lucide-react";
 import { COMPANY, NAV_LINKS } from "../lib/constants";
+
+// Prefetch functions for each route
+const prefetchRoute = (path) => {
+  switch (path) {
+    case "/about":
+      import("../pages/About");
+      break;
+    case "/commodities":
+      import("../pages/Commodities");
+      break;
+    case "/services":
+      import("../pages/Services");
+      break;
+    case "/clients":
+      import("../pages/Clients");
+      break;
+    case "/team":
+      import("../pages/Team");
+      break;
+    case "/contact":
+      import("../pages/Contact");
+      break;
+    default:
+      break;
+  }
+};
 
 export const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -61,6 +87,8 @@ export const Navbar = () => {
                   isActive ? "text-[#C48D3F]" : "text-[#1A1A1A] hover:text-[#C48D3F]"
                 }`
               }
+              onMouseEnter={() => prefetchRoute(link.to)}
+              onFocus={() => prefetchRoute(link.to)}
             >
               {({ isActive }) => (
                 <>
@@ -76,8 +104,10 @@ export const Navbar = () => {
           to="/contact"
           data-testid="navbar-cta"
           className="hidden lg:inline-flex items-center gap-2 px-5 py-2.5 bg-[#1A1A1A] text-[#FDFBF7] text-sm tracking-wide relative overflow-hidden group"
+          onMouseEnter={() => prefetchRoute("/contact")}
+          onFocus={() => prefetchRoute("/contact")}
         >
-          <span className="absolute inset-0 bg-[#C48D3F] translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]" />
+          <span className="absolute inset-0 bg-[#C48D3F] translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-custom" />
           <span className="relative">Request Quote</span>
         </Link>
 
@@ -103,6 +133,9 @@ export const Navbar = () => {
                 className={({ isActive }) =>
                   `py-3 border-b border-[#E5E0D8] text-base ${isActive ? "text-[#C48D3F]" : "text-[#1A1A1A]"}`
                 }
+                onClick={() => setOpen(false)}
+                onMouseEnter={() => prefetchRoute(link.to)}
+                onFocus={() => prefetchRoute(link.to)}
               >
                 {link.label}
               </NavLink>
@@ -111,6 +144,9 @@ export const Navbar = () => {
               to="/contact"
               data-testid="mobile-cta"
               className="mt-6 inline-flex justify-center items-center px-5 py-3 bg-[#1A1A1A] text-[#FDFBF7] text-sm tracking-wide"
+              onClick={() => setOpen(false)}
+              onMouseEnter={() => prefetchRoute("/contact")}
+              onFocus={() => prefetchRoute("/contact")}
             >
               Request Quote
             </Link>
