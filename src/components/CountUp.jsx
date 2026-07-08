@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { useInView } from "framer-motion";
 
-// Parses "20+", "120k", "9", "300+" into { number, prefix, suffix }
 const parseValue = (val) => {
   const m = String(val).match(/^([^\d]*)(\d+(?:\.\d+)?)([a-zA-Z+%]*)$/);
   if (!m) return { prefix: "", num: 0, suffix: String(val) };
@@ -30,7 +29,9 @@ export const CountUp = ({ value, duration = 1600, className = "" }) => {
     return () => cancelAnimationFrame(raf);
   }, [inView, num, duration]);
 
-  const formatted = Number.isInteger(num) ? Math.round(display).toLocaleString() : display.toFixed(1);
+  const formatted = Number.isInteger(num)
+    ? Math.round(display).toLocaleString()
+    : display.toFixed(1);
 
   return (
     <span ref={ref} className={className}>

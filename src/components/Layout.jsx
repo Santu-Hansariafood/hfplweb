@@ -6,7 +6,9 @@ import { Suspense, useEffect } from "react";
 
 export const Layout = () => {
   const { pathname } = useLocation();
-  useEffect(() => { window.scrollTo(0, 0); }, [pathname]);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
   return (
     <div className="min-h-screen bg-[#FDFBF7] text-[#1A1A1A]">

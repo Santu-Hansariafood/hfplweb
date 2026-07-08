@@ -18,7 +18,6 @@ export const ScrollToTop = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // circle circumference for progress ring: r = 22
   const R = 22;
   const C = 2 * Math.PI * R;
 
@@ -37,9 +36,18 @@ export const ScrollToTop = () => {
           whileTap={{ scale: 0.94 }}
           className="fixed bottom-6 right-6 lg:bottom-8 lg:right-8 z-40 w-14 h-14 group"
         >
-          {/* Ring progress */}
-          <svg className="absolute inset-0 w-full h-full -rotate-90" viewBox="0 0 50 50">
-            <circle cx="25" cy="25" r={R} fill="#1A1A1A" stroke="#E5E0D8" strokeWidth="2" />
+          <svg
+            className="absolute inset-0 w-full h-full -rotate-90"
+            viewBox="0 0 50 50"
+          >
+            <circle
+              cx="25"
+              cy="25"
+              r={R}
+              fill="#1A1A1A"
+              stroke="#E5E0D8"
+              strokeWidth="2"
+            />
             <circle
               cx="25"
               cy="25"
@@ -54,7 +62,10 @@ export const ScrollToTop = () => {
             />
           </svg>
           <span className="absolute inset-0 flex items-center justify-center">
-            <ArrowUp size={18} className="text-[#C48D3F] transition-transform duration-500 group-hover:-translate-y-0.5" />
+            <ArrowUp
+              size={18}
+              className="text-[#C48D3F] transition-transform duration-500 group-hover:-translate-y-0.5"
+            />
           </span>
         </m.button>
       )}

@@ -1,7 +1,13 @@
 import { m, useInView } from "framer-motion";
 import { useRef } from "react";
 
-export const Reveal = ({ children, delay = 0, y = 30, className = "", once = true }) => {
+export const Reveal = ({
+  children,
+  delay = 0,
+  y = 30,
+  className = "",
+  once = true,
+}) => {
   const ref = useRef(null);
   const inView = useInView(ref, { once, margin: "-80px 0px" });
 
@@ -37,7 +43,11 @@ export const RevealItem = ({ children, className = "" }) => (
   <m.div
     variants={{
       hidden: { opacity: 0, y: 30 },
-      visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] } },
+      visible: {
+        opacity: 1,
+        y: 0,
+        transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] },
+      },
     }}
     className={className}
   >

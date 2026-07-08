@@ -1,18 +1,35 @@
 import { PageHeader, Breadcrumb } from "../components/PageHeader";
 import { SERVICES } from "../lib/constants";
 import { Link } from "react-router-dom";
-import { ArrowUpRight, Check, Globe2, LineChart, Handshake, Compass, Package, Truck, FileCheck } from "lucide-react";
+import {
+  ArrowUpRight,
+  Check,
+  Globe2,
+  LineChart,
+  Handshake,
+  Compass,
+  Package,
+  Truck,
+  FileCheck,
+} from "lucide-react";
 import { m, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { Reveal, RevealStagger, RevealItem } from "../components/Reveal";
 
 const SERVICE_ICONS = [Globe2, LineChart, Handshake];
-const STEP_ICONS = { "01": Compass, "02": Package, "03": Truck, "04": FileCheck };
+const STEP_ICONS = {
+  "01": Compass,
+  "02": Package,
+  "03": Truck,
+  "04": FileCheck,
+};
 
-/* Parallax image tile that shifts on scroll */
 const ParallaxImage = ({ src, alt }) => {
   const ref = useRef(null);
-  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"],
+  });
   const y = useTransform(scrollYProgress, [0, 1], ["-8%", "8%"]);
   const scale = useTransform(scrollYProgress, [0, 0.5, 1], [1.05, 1, 1.05]);
   return (
@@ -45,7 +62,6 @@ const ServiceRow = ({ s, i }) => {
       }`}
     >
       <div className="lg:col-span-6 relative">
-        {/* Rotating dashed frame */}
         <svg
           className="absolute inset-0 -m-4 pointer-events-none opacity-30"
           viewBox="0 0 100 100"
@@ -53,9 +69,14 @@ const ServiceRow = ({ s, i }) => {
           style={{ width: "calc(100% + 32px)", height: "calc(100% + 32px)" }}
         >
           <rect
-            x="0.5" y="0.5" width="99" height="99"
-            fill="none" stroke="#C48D3F"
-            strokeWidth="0.3" strokeDasharray="1 2"
+            x="0.5"
+            y="0.5"
+            width="99"
+            height="99"
+            fill="none"
+            stroke="#C48D3F"
+            strokeWidth="0.3"
+            strokeDasharray="1 2"
             vectorEffect="non-scaling-stroke"
           />
         </svg>
@@ -64,7 +85,6 @@ const ServiceRow = ({ s, i }) => {
 
       <div className="lg:col-span-6">
         <div className="flex items-start gap-6 mb-6">
-          {/* Animated icon block */}
           <m.div
             initial={{ rotate: -8, scale: 0.8, opacity: 0 }}
             whileInView={{ rotate: 0, scale: 1, opacity: 1 }}
@@ -72,7 +92,10 @@ const ServiceRow = ({ s, i }) => {
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
             className="w-16 h-16 border border-[#E5E0D8] flex items-center justify-center bg-[#FDFBF7] group-hover:bg-[#C48D3F] group-hover:border-[#C48D3F] group-hover:rotate-6 transition-all duration-500"
           >
-            <Icon size={22} className="text-[#C48D3F] group-hover:text-[#FDFBF7] transition-colors duration-500" />
+            <Icon
+              size={22}
+              className="text-[#C48D3F] group-hover:text-[#FDFBF7] transition-colors duration-500"
+            />
           </m.div>
 
           <div className="flex-1">
@@ -128,10 +151,18 @@ const ServiceRow = ({ s, i }) => {
 
 const Services = () => {
   const steps = [
-    { n: "01", t: "Discover", d: "Understand your specification, volume and timeline." },
+    {
+      n: "01",
+      t: "Discover",
+      d: "Understand your specification, volume and timeline.",
+    },
     { n: "02", t: "Source", d: "Match origins, lock pricing, secure quality." },
     { n: "03", t: "Move", d: "Coordinate inland, port and ocean logistics." },
-    { n: "04", t: "Settle", d: "Documentation, payment and post-shipment support." },
+    {
+      n: "04",
+      t: "Settle",
+      d: "Documentation, payment and post-shipment support.",
+    },
   ];
 
   return (
@@ -149,29 +180,36 @@ const Services = () => {
         ))}
       </section>
 
-      {/* Engagement model — animated timeline */}
       <section className="bg-[#2C4C3B] text-[#FDFBF7] px-6 md:px-12 lg:px-24 py-24 lg:py-32 relative overflow-hidden">
-        {/* Decorative floating blobs */}
         <div className="absolute -top-20 -right-20 w-96 h-96 rounded-full bg-[#C48D3F]/8 blur-3xl animate-blob pointer-events-none" />
-        <div className="absolute -bottom-20 -left-20 w-96 h-96 rounded-full bg-[#FDFBF7]/5 blur-3xl animate-blob pointer-events-none" style={{ animationDelay: "3s" }} />
+        <div
+          className="absolute -bottom-20 -left-20 w-96 h-96 rounded-full bg-[#FDFBF7]/5 blur-3xl animate-blob pointer-events-none"
+          style={{ animationDelay: "3s" }}
+        />
 
         <Reveal className="relative max-w-3xl">
-          <div className="text-[10px] tracking-[0.3em] uppercase text-[#C48D3F] mb-6">Engagement model</div>
+          <div className="text-[10px] tracking-[0.3em] uppercase text-[#C48D3F] mb-6">
+            Engagement model
+          </div>
           <h2 className="font-serif-display text-4xl lg:text-5xl tracking-tight leading-tight">
             How we work with <em className="italic text-[#C48D3F]">you.</em>
           </h2>
         </Reveal>
 
-        {/* Timeline with animated dashed spine */}
         <div className="relative mt-16 lg:mt-20">
-          {/* Horizontal dashed spine (desktop) */}
           <div className="hidden lg:block absolute left-0 right-0 top-8 h-px">
             <m.div
               initial={{ scaleX: 0 }}
               whileInView={{ scaleX: 1 }}
               viewport={{ once: true, margin: "-40px" }}
               transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1] }}
-              style={{ transformOrigin: "left", backgroundImage: "linear-gradient(to right, #C48D3F 50%, transparent 50%)", backgroundSize: "12px 1px", backgroundRepeat: "repeat-x" }}
+              style={{
+                transformOrigin: "left",
+                backgroundImage:
+                  "linear-gradient(to right, #C48D3F 50%, transparent 50%)",
+                backgroundSize: "12px 1px",
+                backgroundRepeat: "repeat-x",
+              }}
               className="h-full"
             />
           </div>
@@ -187,14 +225,12 @@ const Services = () => {
                     data-testid={`step-${step.n}`}
                     className="relative group"
                   >
-                    {/* Node marker on the spine */}
                     <div className="hidden lg:flex absolute -top-1 left-0 w-16 h-16 items-center justify-center">
                       <span className="w-4 h-4 rounded-full bg-[#C48D3F] relative">
                         <span className="absolute inset-0 rounded-full bg-[#C48D3F] animate-ping opacity-40" />
                       </span>
                     </div>
 
-                    {/* Card */}
                     <div className="pt-20 lg:pt-14 pl-0">
                       <div className="flex items-baseline gap-4 mb-4">
                         <div className="font-serif-display text-6xl text-[#C48D3F] leading-none transition-transform duration-500 group-hover:scale-110 origin-left inline-block">
@@ -209,7 +245,9 @@ const Services = () => {
                       <div className="font-serif-display text-2xl mt-2 mb-3 group-hover:text-[#C48D3F] transition-colors duration-500">
                         {step.t}
                       </div>
-                      <p className="text-sm text-[#FDFBF7]/75 leading-relaxed">{step.d}</p>
+                      <p className="text-sm text-[#FDFBF7]/75 leading-relaxed">
+                        {step.d}
+                      </p>
                     </div>
                   </m.div>
                 </RevealItem>

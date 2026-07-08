@@ -6,12 +6,12 @@ import { m } from "framer-motion";
 import { Reveal, RevealStagger, RevealItem } from "../components/Reveal";
 
 const SHAPES = [
-  { shape: "shape-leaf", accent: "#C48D3F", ring: true },         // Maize
+  { shape: "shape-leaf", accent: "#C48D3F", ring: true }, // Maize
   { shape: "shape-portrait-lg", accent: "#2C4C3B", ring: false }, // Soya Bean
-  { shape: "shape-squircle", accent: "#C48D3F", ring: false },    // Wheat
-  { shape: "shape-diagonal", accent: "#2C4C3B", ring: true },     // Millet
-  { shape: "shape-blob", accent: "#C48D3F", ring: false },        // Mustard
-  { shape: "shape-tall-arch", accent: "#2C4C3B", ring: true },    // Broken Rice
+  { shape: "shape-squircle", accent: "#C48D3F", ring: false }, // Wheat
+  { shape: "shape-diagonal", accent: "#2C4C3B", ring: true }, // Millet
+  { shape: "shape-blob", accent: "#C48D3F", ring: false }, // Mustard
+  { shape: "shape-tall-arch", accent: "#2C4C3B", ring: true }, // Broken Rice
 ];
 
 const CommodityCard = ({ c, i }) => {
@@ -24,17 +24,28 @@ const CommodityCard = ({ c, i }) => {
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-80px" }}
-      transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1], delay: (i % 3) * 0.08 }}
+      transition={{
+        duration: 0.9,
+        ease: [0.16, 1, 0.3, 1],
+        delay: (i % 3) * 0.08,
+      }}
       className="group relative py-16 lg:py-24 border-b border-[#E5E0D8] last:border-b-0"
     >
-      <div className={`grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center ${reverse ? "lg:[&>div:first-child]:order-2" : ""}`}>
+      <div
+        className={`grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center ${reverse ? "lg:[&>div:first-child]:order-2" : ""}`}
+      >
         <div className="lg:col-span-5 flex justify-center">
           <div className="relative">
             {cfg.ring && (
               <svg
                 className="absolute inset-0 spin-slower pointer-events-none"
                 viewBox="0 0 400 400"
-                style={{ width: "108%", height: "108%", left: "-4%", top: "-4%" }}
+                style={{
+                  width: "108%",
+                  height: "108%",
+                  left: "-4%",
+                  top: "-4%",
+                }}
               >
                 <circle
                   cx="200"
@@ -60,7 +71,9 @@ const CommodityCard = ({ c, i }) => {
               style={{ backgroundColor: cfg.accent }}
             />
 
-             <div className={`${cfg.shape} w-[280px] h-[380px] sm:w-[320px] sm:h-[420px] lg:w-[360px] lg:h-[460px] relative shimmer-overlay bg-[#F2F0EA]`}>
+            <div
+              className={`${cfg.shape} w-[280px] h-[380px] sm:w-[320px] sm:h-[420px] lg:w-[360px] lg:h-[460px] relative shimmer-overlay bg-[#F2F0EA]`}
+            >
               <img
                 src={c.image}
                 alt={c.name}
@@ -79,7 +92,9 @@ const CommodityCard = ({ c, i }) => {
               0{i + 1}
             </span>
             <div className="h-px flex-1 max-w-[80px] bg-[#E5E0D8]" />
-            <span className="text-[10px] tracking-[0.3em] uppercase text-[#4A4A4A]">Traded</span>
+            <span className="text-[10px] tracking-[0.3em] uppercase text-[#4A4A4A]">
+              Traded
+            </span>
           </div>
 
           <h3 className="font-serif-display text-4xl lg:text-6xl text-[#1A1A1A] mb-6 leading-[0.95] tracking-tight">
@@ -91,7 +106,12 @@ const CommodityCard = ({ c, i }) => {
           </p>
 
           <div className="flex flex-wrap gap-2 mb-10">
-            {["Origin: India", "Spot & Forward", "FSSAI Compliant", "Bulk / Bagged"].map((tag) => (
+            {[
+              "Origin: India",
+              "Spot & Forward",
+              "FSSAI Compliant",
+              "Bulk / Bagged",
+            ].map((tag) => (
               <span
                 key={tag}
                 className="text-xs px-3 py-1.5 border border-[#E5E0D8] text-[#4A4A4A] hover:border-[#C48D3F] hover:text-[#C48D3F] transition-colors cursor-default"
@@ -108,7 +128,10 @@ const CommodityCard = ({ c, i }) => {
             <span className="absolute inset-0 bg-[#C48D3F] translate-y-full group-hover/btn:translate-y-0 transition-transform duration-500 ease-custom" />
             <span className="relative flex items-center gap-3">
               Enquire about {c.name}
-              <ArrowUpRight size={16} className="transition-transform group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1" />
+              <ArrowUpRight
+                size={16}
+                className="transition-transform group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1"
+              />
             </span>
           </Link>
         </div>
@@ -138,16 +161,27 @@ const Commodities = () => {
       <section className="bg-[#F2F0EA] px-6 md:px-12 lg:px-24 py-24 lg:py-32 grain-overlay">
         <Reveal className="grid grid-cols-1 lg:grid-cols-12 gap-10 mb-12">
           <div className="lg:col-span-6">
-            <div className="text-[10px] tracking-[0.3em] uppercase text-[#C48D3F] mb-4">Product families</div>
-            <h2 className="font-serif-display text-4xl lg:text-5xl text-[#1A1A1A] tracking-tight leading-tight">Four categories. One disciplined book.</h2>
+            <div className="text-[10px] tracking-[0.3em] uppercase text-[#C48D3F] mb-4">
+              Product families
+            </div>
+            <h2 className="font-serif-display text-4xl lg:text-5xl text-[#1A1A1A] tracking-tight leading-tight">
+              Four categories. One disciplined book.
+            </h2>
           </div>
         </Reveal>
         <RevealStagger className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-[#E5E0D8]">
           {CATEGORIES.map((cat, i) => (
             <RevealItem key={cat.name}>
-              <div data-testid={`cat-${i}`} className="bg-[#FDFBF7] p-8 lg:p-10 hover:bg-[#2C4C3B] hover:text-[#FDFBF7] transition-all duration-500 group h-full">
-                <div className="text-[10px] tracking-[0.3em] uppercase text-[#C48D3F] mb-4">0{i + 1}</div>
-                <h3 className="font-serif-display text-2xl text-[#1A1A1A] group-hover:text-[#FDFBF7] mb-5 transition-colors duration-500">{cat.name}</h3>
+              <div
+                data-testid={`cat-${i}`}
+                className="bg-[#FDFBF7] p-8 lg:p-10 hover:bg-[#2C4C3B] hover:text-[#FDFBF7] transition-all duration-500 group h-full"
+              >
+                <div className="text-[10px] tracking-[0.3em] uppercase text-[#C48D3F] mb-4">
+                  0{i + 1}
+                </div>
+                <h3 className="font-serif-display text-2xl text-[#1A1A1A] group-hover:text-[#FDFBF7] mb-5 transition-colors duration-500">
+                  {cat.name}
+                </h3>
                 <ul className="space-y-2 text-sm text-[#4A4A4A] group-hover:text-[#FDFBF7]/85 transition-colors duration-500">
                   {cat.items.map((it) => (
                     <li key={it} className="flex items-center gap-2">

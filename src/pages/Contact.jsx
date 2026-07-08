@@ -1,7 +1,18 @@
 import { PageHeader, Breadcrumb } from "../components/PageHeader";
 import { useState } from "react";
 import { COMPANY } from "../lib/constants";
-import { Phone, Mail, MapPin, ArrowRight, Clock, Send, User, Building2, MessageCircle, Sparkles } from "lucide-react";
+import {
+  Phone,
+  Mail,
+  MapPin,
+  ArrowRight,
+  Clock,
+  Send,
+  User,
+  Building2,
+  MessageCircle,
+  Sparkles,
+} from "lucide-react";
 import { toast } from "sonner";
 import { m } from "framer-motion";
 import { Reveal } from "../components/Reveal";
@@ -13,7 +24,16 @@ const ENQUIRY_TYPES = [
   { id: "career", label: "Careers" },
 ];
 
-const Field = ({ label, testId, value, onChange, type = "text", icon: Icon, required, placeholder }) => {
+const Field = ({
+  label,
+  testId,
+  value,
+  onChange,
+  type = "text",
+  icon: Icon,
+  required,
+  placeholder,
+}) => {
   const [focused, setFocused] = useState(false);
   const filled = value && value.length > 0;
   const active = focused || filled;
@@ -26,7 +46,8 @@ const Field = ({ label, testId, value, onChange, type = "text", icon: Icon, requ
             : "top-1/2 -translate-y-1/2 text-sm text-[#4A4A4A]"
         }`}
       >
-        {label}{required && <span className="text-[#C48D3F]"> *</span>}
+        {label}
+        {required && <span className="text-[#C48D3F]"> *</span>}
       </span>
       {Icon && (
         <Icon
@@ -53,7 +74,15 @@ const Field = ({ label, testId, value, onChange, type = "text", icon: Icon, requ
 };
 
 const Contact = () => {
-  const [form, setForm] = useState({ name: "", company: "", email: "", phone: "", commodity: "", message: "", type: "buy" });
+  const [form, setForm] = useState({
+    name: "",
+    company: "",
+    email: "",
+    phone: "",
+    commodity: "",
+    message: "",
+    type: "buy",
+  });
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -61,12 +90,13 @@ const Contact = () => {
       toast.error("Please fill in your name, email and a brief message.");
       return;
     }
-    const typeLabel = ENQUIRY_TYPES.find((t) => t.id === form.type)?.label || form.type;
+    const typeLabel =
+      ENQUIRY_TYPES.find((t) => t.id === form.type)?.label || form.type;
     const subject = encodeURIComponent(
-      `[${typeLabel}] Enquiry from ${form.name}${form.company ? ` (${form.company})` : ""}${form.commodity ? ` — ${form.commodity}` : ""}`
+      `[${typeLabel}] Enquiry from ${form.name}${form.company ? ` (${form.company})` : ""}${form.commodity ? ` — ${form.commodity}` : ""}`,
     );
     const body = encodeURIComponent(
-      `Enquiry type: ${typeLabel}\nName: ${form.name}\nCompany: ${form.company}\nEmail: ${form.email}\nPhone: ${form.phone}\nCommodity of interest: ${form.commodity}\n\nMessage:\n${form.message}`
+      `Enquiry type: ${typeLabel}\nName: ${form.name}\nCompany: ${form.company}\nEmail: ${form.email}\nPhone: ${form.phone}\nCommodity of interest: ${form.commodity}\n\nMessage:\n${form.message}`,
     );
     window.location.href = `mailto:${COMPANY.email}?subject=${subject}&body=${body}`;
     toast.success("Opening your email client…");
@@ -93,10 +123,13 @@ const Contact = () => {
             <div>
               <div className="flex items-center gap-3 mb-6">
                 <div className="h-px w-12 bg-[#C48D3F]" />
-                <span className="text-[10px] tracking-[0.3em] uppercase text-[#C48D3F]">Reach us</span>
+                <span className="text-[10px] tracking-[0.3em] uppercase text-[#C48D3F]">
+                  Reach us
+                </span>
               </div>
               <h2 className="font-serif-display text-3xl lg:text-4xl text-[#1A1A1A] leading-tight">
-                Direct lines to the <em className="italic text-[#C48D3F]">desk.</em>
+                Direct lines to the{" "}
+                <em className="italic text-[#C48D3F]">desk.</em>
               </h2>
             </div>
 
@@ -108,11 +141,18 @@ const Contact = () => {
               >
                 <span className="absolute left-0 top-0 bottom-0 w-1 bg-[#C48D3F] scale-y-0 group-hover:scale-y-100 origin-top transition-transform duration-500" />
                 <span className="w-11 h-11 border border-[#E5E0D8] flex items-center justify-center flex-shrink-0 group-hover:bg-[#C48D3F] group-hover:border-[#C48D3F] transition-all duration-500">
-                  <Phone size={16} className="text-[#C48D3F] group-hover:text-[#FDFBF7] transition-colors duration-500" />
+                  <Phone
+                    size={16}
+                    className="text-[#C48D3F] group-hover:text-[#FDFBF7] transition-colors duration-500"
+                  />
                 </span>
                 <div>
-                  <div className="text-[10px] tracking-[0.3em] uppercase text-[#4A4A4A] mb-1">Phone</div>
-                  <div className="font-serif-display text-xl text-[#1A1A1A]">{COMPANY.phone}</div>
+                  <div className="text-[10px] tracking-[0.3em] uppercase text-[#4A4A4A] mb-1">
+                    Phone
+                  </div>
+                  <div className="font-serif-display text-xl text-[#1A1A1A]">
+                    {COMPANY.phone}
+                  </div>
                 </div>
               </a>
               <a
@@ -122,11 +162,18 @@ const Contact = () => {
               >
                 <span className="absolute left-0 top-0 bottom-0 w-1 bg-[#C48D3F] scale-y-0 group-hover:scale-y-100 origin-top transition-transform duration-500" />
                 <span className="w-11 h-11 border border-[#E5E0D8] flex items-center justify-center flex-shrink-0 group-hover:bg-[#C48D3F] group-hover:border-[#C48D3F] transition-all duration-500">
-                  <Mail size={16} className="text-[#C48D3F] group-hover:text-[#FDFBF7] transition-colors duration-500" />
+                  <Mail
+                    size={16}
+                    className="text-[#C48D3F] group-hover:text-[#FDFBF7] transition-colors duration-500"
+                  />
                 </span>
                 <div>
-                  <div className="text-[10px] tracking-[0.3em] uppercase text-[#4A4A4A] mb-1">Email</div>
-                  <div className="font-serif-display text-xl text-[#1A1A1A]">{COMPANY.email}</div>
+                  <div className="text-[10px] tracking-[0.3em] uppercase text-[#4A4A4A] mb-1">
+                    Email
+                  </div>
+                  <div className="font-serif-display text-xl text-[#1A1A1A]">
+                    {COMPANY.email}
+                  </div>
                 </div>
               </a>
               <div className="bg-[#FDFBF7] p-6 flex items-start gap-4">
@@ -134,8 +181,12 @@ const Contact = () => {
                   <MapPin size={16} className="text-[#C48D3F]" />
                 </span>
                 <div>
-                  <div className="text-[10px] tracking-[0.3em] uppercase text-[#4A4A4A] mb-1">Office</div>
-                  <div className="font-serif-display text-xl text-[#1A1A1A]">{COMPANY.address}</div>
+                  <div className="text-[10px] tracking-[0.3em] uppercase text-[#4A4A4A] mb-1">
+                    Office
+                  </div>
+                  <div className="font-serif-display text-xl text-[#1A1A1A]">
+                    {COMPANY.address}
+                  </div>
                 </div>
               </div>
             </div>
@@ -147,9 +198,18 @@ const Contact = () => {
                   <Clock size={12} /> Trading hours
                 </div>
                 <div className="text-sm text-[#4A4A4A] space-y-1">
-                  <div className="flex justify-between"><span>Mon – Fri</span><span className="text-[#1A1A1A]">09:30 – 18:30 IST</span></div>
-                  <div className="flex justify-between"><span>Saturday</span><span className="text-[#1A1A1A]">09:30 – 14:00 IST</span></div>
-                  <div className="flex justify-between opacity-60"><span>Sunday</span><span>Closed</span></div>
+                  <div className="flex justify-between">
+                    <span>Mon – Fri</span>
+                    <span className="text-[#1A1A1A]">09:30 – 18:30 IST</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span>Saturday</span>
+                    <span className="text-[#1A1A1A]">09:30 – 14:00 IST</span>
+                  </div>
+                  <div className="flex justify-between opacity-60">
+                    <span>Sunday</span>
+                    <span>Closed</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -180,14 +240,20 @@ const Contact = () => {
                   </h3>
                 </div>
                 <div className="hidden md:block text-right">
-                  <div className="text-[10px] tracking-[0.3em] uppercase text-[#4A4A4A]">Response time</div>
-                  <div className="font-serif-display text-2xl text-[#C48D3F] mt-1">&lt; 24h</div>
+                  <div className="text-[10px] tracking-[0.3em] uppercase text-[#4A4A4A]">
+                    Response time
+                  </div>
+                  <div className="font-serif-display text-2xl text-[#C48D3F] mt-1">
+                    &lt; 24h
+                  </div>
                 </div>
               </div>
 
               {/* Enquiry type radio pills */}
               <div className="mb-8">
-                <div className="text-[10px] tracking-[0.3em] uppercase text-[#4A4A4A] mb-3">Enquiry type</div>
+                <div className="text-[10px] tracking-[0.3em] uppercase text-[#4A4A4A] mb-3">
+                  Enquiry type
+                </div>
                 <div className="flex flex-wrap gap-2">
                   {ENQUIRY_TYPES.map((t) => (
                     <button
@@ -207,13 +273,56 @@ const Contact = () => {
                 </div>
               </div>
 
-              <form data-testid="contact-form" onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                <Field label="Name" testId="form-name" value={form.name} onChange={handle("name")} icon={User} required placeholder="Your full name" />
-                <Field label="Company" testId="form-company" value={form.company} onChange={handle("company")} icon={Building2} placeholder="Company / firm" />
-                <Field label="Email" testId="form-email" type="email" value={form.email} onChange={handle("email")} icon={Mail} required placeholder="you@company.com" />
-                <Field label="Phone" testId="form-phone" type="tel" value={form.phone} onChange={handle("phone")} icon={Phone} placeholder="+91 ..." />
+              <form
+                data-testid="contact-form"
+                onSubmit={handleSubmit}
+                className="grid grid-cols-1 md:grid-cols-2 gap-5"
+              >
+                <Field
+                  label="Name"
+                  testId="form-name"
+                  value={form.name}
+                  onChange={handle("name")}
+                  icon={User}
+                  required
+                  placeholder="Your full name"
+                />
+                <Field
+                  label="Company"
+                  testId="form-company"
+                  value={form.company}
+                  onChange={handle("company")}
+                  icon={Building2}
+                  placeholder="Company / firm"
+                />
+                <Field
+                  label="Email"
+                  testId="form-email"
+                  type="email"
+                  value={form.email}
+                  onChange={handle("email")}
+                  icon={Mail}
+                  required
+                  placeholder="you@company.com"
+                />
+                <Field
+                  label="Phone"
+                  testId="form-phone"
+                  type="tel"
+                  value={form.phone}
+                  onChange={handle("phone")}
+                  icon={Phone}
+                  placeholder="+91 ..."
+                />
                 <div className="md:col-span-2">
-                  <Field label="Commodity of interest" testId="form-commodity" value={form.commodity} onChange={handle("commodity")} icon={Sparkles} placeholder="Maize, Soya Bean D.O.C., Broken Rice…" />
+                  <Field
+                    label="Commodity of interest"
+                    testId="form-commodity"
+                    value={form.commodity}
+                    onChange={handle("commodity")}
+                    icon={Sparkles}
+                    placeholder="Maize, Soya Bean D.O.C., Broken Rice…"
+                  />
                 </div>
 
                 {/* Message textarea */}
@@ -238,7 +347,8 @@ const Contact = () => {
 
                 <div className="md:col-span-2 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 pt-2">
                   <p className="text-xs text-[#4A4A4A] max-w-sm">
-                    By sending this enquiry you agree to our Privacy Policy. We reply within one business day.
+                    By sending this enquiry you agree to our Privacy Policy. We
+                    reply within one business day.
                   </p>
                   <button
                     data-testid="form-submit"
@@ -249,8 +359,14 @@ const Contact = () => {
                     <span className="relative flex items-center gap-3">
                       Send enquiry
                       <span className="w-6 h-6 rounded-full bg-[#FDFBF7]/15 flex items-center justify-center group-hover:bg-[#FDFBF7]/25 transition-colors">
-                        <Send size={12} className="transition-transform duration-500 group-hover:translate-x-4 group-hover:-translate-y-4 group-hover:opacity-0" />
-                        <ArrowRight size={12} className="absolute -translate-x-4 translate-y-4 opacity-0 group-hover:translate-x-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 delay-100" />
+                        <Send
+                          size={12}
+                          className="transition-transform duration-500 group-hover:translate-x-4 group-hover:-translate-y-4 group-hover:opacity-0"
+                        />
+                        <ArrowRight
+                          size={12}
+                          className="absolute -translate-x-4 translate-y-4 opacity-0 group-hover:translate-x-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 delay-100"
+                        />
                       </span>
                     </span>
                   </button>

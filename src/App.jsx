@@ -16,22 +16,30 @@ const Contact = lazy(() => import("./pages/Contact"));
 const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
 const Disclaimer = lazy(() => import("./pages/Disclaimer"));
 const TermsOfUse = lazy(() => import("./pages/TermsOfUse"));
+const ITServices = lazy(() => import("./pages/ITServices"));
 
-// Smart prefetch function that initiates prefetching when idle
 const prefetchOnIdle = () => {
-  if ('requestIdleCallback' in window) {
-    requestIdleCallback(() => {
-      // Prefetch common routes when idle
-      import("./pages/About");
-      import("./pages/Commodities");
-      import("./pages/Services");
-    }, { timeout: 3000 });
+  if ("requestIdleCallback" in window) {
+    requestIdleCallback(
+      () => {
+        import("./pages/About");
+        import("./pages/Commodities");
+        import("./pages/Services");
+        import("./pages/ITServices");
+      },
+      { timeout: 3000 },
+    );
   } else {
-    // Fallback to setTimeout
     setTimeout(() => {
       import("./pages/About");
       import("./pages/Commodities");
       import("./pages/Services");
+      import("./pages/Clients");
+      import("./pages/Team");
+      import("./pages/Contact");
+      import("./pages/PrivacyPolicy");
+      import("./pages/Disclaimer");
+      import("./pages/TermsOfUse");
     }, 2000);
   }
 };
@@ -50,13 +58,17 @@ function Seo({ title, description, path }) {
       <link rel="canonical" href={canonical} />
       <meta property="og:site_name" content={COMPANY.name} />
       <meta property="og:title" content={fullTitle} />
-      {description ? <meta property="og:description" content={description} /> : null}
+      {description ? (
+        <meta property="og:description" content={description} />
+      ) : null}
       <meta property="og:type" content="website" />
       <meta property="og:url" content={canonical} />
       <meta property="og:image" content={ogImage} />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={fullTitle} />
-      {description ? <meta name="twitter:description" content={description} /> : null}
+      {description ? (
+        <meta name="twitter:description" content={description} />
+      ) : null}
       <meta name="twitter:image" content={ogImage} />
     </Helmet>
   );
@@ -64,7 +76,6 @@ function Seo({ title, description, path }) {
 
 function App() {
   useEffect(() => {
-    // Prefetch common routes when the app is idle
     prefetchOnIdle();
   }, []);
 
@@ -181,7 +192,11 @@ function App() {
               element={
                 <Suspense fallback={<Loading />}>
                   <>
-                    <Seo title="Privacy Policy" description="Read the Hansaria Food privacy policy." path="/privacy-policy" />
+                    <Seo
+                      title="Privacy Policy"
+                      description="Read the Hansaria Food privacy policy."
+                      path="/privacy-policy"
+                    />
                     <PrivacyPolicy />
                   </>
                 </Suspense>
@@ -192,7 +207,11 @@ function App() {
               element={
                 <Suspense fallback={<Loading />}>
                   <>
-                    <Seo title="Disclaimer" description="Read the Hansaria Food disclaimer." path="/disclaimer" />
+                    <Seo
+                      title="Disclaimer"
+                      description="Read the Hansaria Food disclaimer."
+                      path="/disclaimer"
+                    />
                     <Disclaimer />
                   </>
                 </Suspense>
@@ -203,8 +222,27 @@ function App() {
               element={
                 <Suspense fallback={<Loading />}>
                   <>
-                    <Seo title="Terms of Use" description="Read the Hansaria Food terms of use." path="/terms-of-use" />
+                    <Seo
+                      title="Terms of Use"
+                      description="Read the Hansaria Food terms of use."
+                      path="/terms-of-use"
+                    />
                     <TermsOfUse />
+                  </>
+                </Suspense>
+              }
+            />
+            <Route
+              path="/it-services"
+              element={
+                <Suspense fallback={<Loading />}>
+                  <>
+                    <Seo
+                      title="IT Services"
+                      description="Explore the IT services offered by Hansaria Food."
+                      path="/it-services"
+                    />
+                    <ITServices />
                   </>
                 </Suspense>
               }

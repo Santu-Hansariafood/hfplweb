@@ -2,10 +2,6 @@ import { PageHeader, Breadcrumb } from "../components/PageHeader";
 import { Reveal } from "../components/Reveal";
 import { Calendar } from "lucide-react";
 
-/**
- * Reusable premium layout for legal pages.
- * `sections` is an array of { heading, body: string | string[] }
- */
 export const LegalPage = ({ eyebrow, title, subtitle, lastUpdated, sections, testId }) => {
   return (
     <div data-testid={testId}>
@@ -14,7 +10,6 @@ export const LegalPage = ({ eyebrow, title, subtitle, lastUpdated, sections, tes
 
       <section className="px-6 md:px-12 lg:px-24 pb-24 lg:pb-32">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
-          {/* Sticky sidebar with meta + TOC */}
           <aside className="lg:col-span-3">
             <div className="lg:sticky lg:top-32 space-y-8">
               <div className="border border-[#E5E0D8] p-5 bg-[#FDFBF7]">
@@ -45,7 +40,6 @@ export const LegalPage = ({ eyebrow, title, subtitle, lastUpdated, sections, tes
             </div>
           </aside>
 
-          {/* Article body */}
           <article className="lg:col-span-9 space-y-16">
             {sections.map((s, i) => {
               const paragraphs = Array.isArray(s.body) ? s.body : [s.body];
@@ -70,7 +64,6 @@ export const LegalPage = ({ eyebrow, title, subtitle, lastUpdated, sections, tes
               );
             })}
 
-            {/* Footer note */}
             <div className="pl-0 lg:pl-16 pt-6 border-t border-[#E5E0D8]">
               <p className="text-xs text-[#4A4A4A]">
                 Questions about this page? Write to{" "}

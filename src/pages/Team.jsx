@@ -31,7 +31,9 @@ const FeaturedCard = ({ member }) => (
         <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A1A]/60 via-transparent to-transparent" />
         <div className="absolute top-6 left-6 flex items-center gap-2 bg-[#FDFBF7]/95 backdrop-blur-sm px-3 py-1.5">
           <Sparkles size={12} className="text-[#C48D3F]" />
-          <span className="text-[10px] tracking-[0.3em] uppercase text-[#1A1A1A]">Managing Director</span>
+          <span className="text-[10px] tracking-[0.3em] uppercase text-[#1A1A1A]">
+            Managing Director
+          </span>
         </div>
         <div className="absolute bottom-6 right-6 w-24 h-24 rounded-full border border-dashed border-[#FDFBF7]/40 spin-slower pointer-events-none" />
       </div>
@@ -40,12 +42,19 @@ const FeaturedCard = ({ member }) => (
         <div className="absolute -top-16 -right-16 w-48 h-48 rounded-full bg-[#C48D3F]/15 blur-2xl pointer-events-none" />
         <div className="relative">
           <Quote size={32} className="text-[#C48D3F] mb-6" />
-          <h3 className="font-serif-display text-4xl lg:text-5xl leading-[0.95] mb-6">{member.name}</h3>
-          <p className="text-[#FDFBF7]/85 leading-relaxed text-base">{member.bio}</p>
+          <h3 className="font-serif-display text-4xl lg:text-5xl leading-[0.95] mb-6">
+            {member.name}
+          </h3>
+          <p className="text-[#FDFBF7]/85 leading-relaxed text-base">
+            {member.bio}
+          </p>
 
           <div className="mt-8 flex flex-wrap gap-2">
             {EXPERTISE[member.name]?.map((tag) => (
-              <span key={tag} className="text-[10px] tracking-[0.25em] uppercase px-3 py-1.5 border border-[#FDFBF7]/25 text-[#FDFBF7]/85">
+              <span
+                key={tag}
+                className="text-[10px] tracking-[0.25em] uppercase px-3 py-1.5 border border-[#FDFBF7]/25 text-[#FDFBF7]/85"
+              >
                 {tag}
               </span>
             ))}
@@ -53,12 +62,22 @@ const FeaturedCard = ({ member }) => (
         </div>
 
         <div className="relative flex items-center justify-between pt-8 mt-8 border-t border-[#FDFBF7]/15">
-          <span className="text-[10px] tracking-[0.3em] uppercase text-[#C48D3F]">Since 2003</span>
+          <span className="text-[10px] tracking-[0.3em] uppercase text-[#C48D3F]">
+            Since 2003
+          </span>
           <div className="flex gap-2">
-            <a href="#" aria-label="LinkedIn" className="p-2 border border-[#FDFBF7]/25 hover:bg-[#C48D3F] hover:border-[#C48D3F] hover:-translate-y-1 transition-all duration-300">
+            <a
+              href="#"
+              aria-label="LinkedIn"
+              className="p-2 border border-[#FDFBF7]/25 hover:bg-[#C48D3F] hover:border-[#C48D3F] hover:-translate-y-1 transition-all duration-300"
+            >
               <Link size={13} />
             </a>
-            <a href="#" aria-label="Email" className="p-2 border border-[#FDFBF7]/25 hover:bg-[#C48D3F] hover:border-[#C48D3F] hover:-translate-y-1 transition-all duration-300">
+            <a
+              href="#"
+              aria-label="Email"
+              className="p-2 border border-[#FDFBF7]/25 hover:bg-[#C48D3F] hover:border-[#C48D3F] hover:-translate-y-1 transition-all duration-300"
+            >
               <Mail size={13} />
             </a>
           </div>
@@ -78,8 +97,12 @@ const StatCard = ({ n, label, delay = 0 }) => (
   >
     <div className="absolute -top-6 -right-6 w-24 h-24 rounded-full bg-[#C48D3F]/10 group-hover:scale-125 transition-transform duration-700" />
     <div className="relative">
-      <div className="font-serif-display text-5xl lg:text-6xl text-[#C48D3F] leading-none">{n}</div>
-      <div className="text-[10px] tracking-[0.3em] uppercase text-[#4A4A4A] mt-4">{label}</div>
+      <div className="font-serif-display text-5xl lg:text-6xl text-[#C48D3F] leading-none">
+        {n}
+      </div>
+      <div className="text-[10px] tracking-[0.3em] uppercase text-[#4A4A4A] mt-4">
+        {label}
+      </div>
     </div>
   </m.div>
 );
@@ -93,10 +116,7 @@ const MemberCard = ({ member, index }) => (
     transition={{ duration: 0.8, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
     className="group relative bg-[#FDFBF7] border border-[#E5E0D8] overflow-hidden hover:border-[#C48D3F] transition-all duration-500"
   >
-    {/* Sliding gold accent at the top */}
     <span className="absolute top-0 left-0 right-0 h-[3px] bg-[#C48D3F] scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-700 ease-custom z-10" />
-
-    {/* Photo */}
     <div className="relative aspect-[4/5] overflow-hidden">
       <img
         src={member.photo}
@@ -107,40 +127,54 @@ const MemberCard = ({ member, index }) => (
       />
       <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A1A]/70 via-transparent to-transparent" />
 
-      {/* Number tag */}
       <div className="absolute top-4 left-4 w-11 h-11 bg-[#FDFBF7] flex items-center justify-center border border-[#E5E0D8]">
-        <span className="font-serif-display text-lg text-[#C48D3F]">0{index + 2}</span>
+        <span className="font-serif-display text-lg text-[#C48D3F]">
+          0{index + 2}
+        </span>
       </div>
 
-      {/* Floating dot */}
       <span className="absolute top-4 right-4 w-3 h-3 rounded-full bg-[#C48D3F] animate-float shadow-lg" />
 
-      {/* Name at bottom of image */}
       <div className="absolute inset-x-0 bottom-0 p-5">
-        <h3 className="font-serif-display text-2xl lg:text-3xl text-[#FDFBF7] leading-tight">{member.name}</h3>
-        <div className="text-[10px] tracking-[0.3em] uppercase text-[#C48D3F] mt-1">{member.role}</div>
+        <h3 className="font-serif-display text-2xl lg:text-3xl text-[#FDFBF7] leading-tight">
+          {member.name}
+        </h3>
+        <div className="text-[10px] tracking-[0.3em] uppercase text-[#C48D3F] mt-1">
+          {member.role}
+        </div>
       </div>
-    </div>
-
-    {/* Bio + tags */}
+    </div>{" "}
     <div className="p-6 lg:p-7 flex flex-col gap-5">
       <p className="text-sm text-[#4A4A4A] leading-relaxed">{member.bio}</p>
 
       <div className="flex flex-wrap gap-2">
         {EXPERTISE[member.name]?.map((tag) => (
-          <span key={tag} className="text-[10px] tracking-[0.25em] uppercase px-2.5 py-1 border border-[#E5E0D8] text-[#4A4A4A] group-hover:border-[#C48D3F] group-hover:text-[#C48D3F] transition-colors duration-500">
+          <span
+            key={tag}
+            className="text-[10px] tracking-[0.25em] uppercase px-2.5 py-1 border border-[#E5E0D8] text-[#4A4A4A] group-hover:border-[#C48D3F] group-hover:text-[#C48D3F] transition-colors duration-500"
+          >
             {tag}
           </span>
         ))}
       </div>
 
       <div className="flex items-center justify-between pt-4 border-t border-[#E5E0D8]">
-        <span className="text-[10px] tracking-[0.3em] uppercase text-[#4A4A4A]">Get in touch</span>
+        <span className="text-[10px] tracking-[0.3em] uppercase text-[#4A4A4A]">
+          Get in touch
+        </span>
         <div className="flex gap-2 text-[#4A4A4A]">
-          <a href="#" aria-label="LinkedIn" className="p-2 border border-[#E5E0D8] hover:text-[#C48D3F] hover:border-[#C48D3F] hover:-translate-y-1 transition-all duration-300">
+          <a
+            href="#"
+            aria-label="LinkedIn"
+            className="p-2 border border-[#E5E0D8] hover:text-[#C48D3F] hover:border-[#C48D3F] hover:-translate-y-1 transition-all duration-300"
+          >
             <Link size={13} />
           </a>
-          <a href="#" aria-label="Email" className="p-2 border border-[#E5E0D8] hover:text-[#C48D3F] hover:border-[#C48D3F] hover:-translate-y-1 transition-all duration-300">
+          <a
+            href="#"
+            aria-label="Email"
+            className="p-2 border border-[#E5E0D8] hover:text-[#C48D3F] hover:border-[#C48D3F] hover:-translate-y-1 transition-all duration-300"
+          >
             <Mail size={13} />
           </a>
         </div>
@@ -178,10 +212,14 @@ const Team = () => {
           <div>
             <div className="flex items-center gap-3 mb-4">
               <div className="h-px w-12 bg-[#C48D3F]" />
-              <span className="text-[10px] tracking-[0.3em] uppercase text-[#C48D3F]">The desk</span>
+              <span className="text-[10px] tracking-[0.3em] uppercase text-[#C48D3F]">
+                The desk
+              </span>
             </div>
             <h2 className="font-serif-display text-3xl lg:text-4xl text-[#1A1A1A] tracking-tight leading-tight">
-              Specialists you&rsquo;ll<br />actually speak to.
+              Specialists you&rsquo;ll
+              <br />
+              actually speak to.
             </h2>
           </div>
         </Reveal>
@@ -195,18 +233,29 @@ const Team = () => {
 
       <section className="bg-[#2C4C3B] text-[#FDFBF7] px-6 md:px-12 lg:px-24 py-24 lg:py-32 relative overflow-hidden">
         <div className="absolute -top-20 -right-20 w-96 h-96 rounded-full bg-[#C48D3F]/10 blur-3xl animate-blob pointer-events-none" />
-        <div className="absolute -bottom-20 -left-20 w-96 h-96 rounded-full bg-[#FDFBF7]/5 blur-3xl animate-blob pointer-events-none" style={{ animationDelay: "3s" }} />
+        <div
+          className="absolute -bottom-20 -left-20 w-96 h-96 rounded-full bg-[#FDFBF7]/5 blur-3xl animate-blob pointer-events-none"
+          style={{ animationDelay: "3s" }}
+        />
 
         <div className="relative grid grid-cols-1 lg:grid-cols-12 gap-10">
           <Reveal className="lg:col-span-5">
-            <div className="text-[10px] tracking-[0.3em] uppercase text-[#C48D3F] mb-6">Join us</div>
+            <div className="text-[10px] tracking-[0.3em] uppercase text-[#C48D3F] mb-6">
+              Join us
+            </div>
             <h2 className="font-serif-display text-4xl lg:text-5xl tracking-tight leading-tight">
-              Trade with conviction.<br /><em className="italic text-[#C48D3F]">Build</em> a career.
+              Trade with conviction.
+              <br />
+              <em className="italic text-[#C48D3F]">Build</em> a career.
             </h2>
           </Reveal>
-          <Reveal delay={0.15} className="lg:col-span-7 space-y-6 text-[#FDFBF7]/85 leading-relaxed">
+          <Reveal
+            delay={0.15}
+            className="lg:col-span-7 space-y-6 text-[#FDFBF7]/85 leading-relaxed"
+          >
             <p>
-              We hire principals, not order-takers. If you have run a mill, settled a dispute, or chartered a vessel — we have a desk for you.
+              We hire principals, not order-takers. If you have run a mill,
+              settled a dispute, or chartered a vessel — we have a desk for you.
             </p>
             <a
               href="mailto:info@hansariafood.com"
@@ -214,7 +263,9 @@ const Team = () => {
               className="inline-flex items-center gap-2 px-6 py-3.5 bg-[#C48D3F] text-[#FDFBF7] text-sm tracking-wide relative overflow-hidden group"
             >
               <span className="absolute inset-0 bg-[#FDFBF7] translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-custom" />
-              <span className="relative group-hover:text-[#1A1A1A] transition-colors duration-500">Send your resume</span>
+              <span className="relative group-hover:text-[#1A1A1A] transition-colors duration-500">
+                Send your resume
+              </span>
             </a>
           </Reveal>
         </div>

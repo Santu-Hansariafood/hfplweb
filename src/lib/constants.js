@@ -17,6 +17,7 @@ export const NAV_LINKS = [
   { to: "/clients", label: "Clients" },
   { to: "/team", label: "Team" },
   { to: "/contact", label: "Contact" },
+  { to: "/it-services", label: "IT Services" },
 ];
 
 export const COMMODITIES = [
