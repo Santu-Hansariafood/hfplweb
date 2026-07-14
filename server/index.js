@@ -23,6 +23,7 @@ const PUBLIC_ROUTES = [
   '/privacy-policy',
   '/terms-of-use',
   '/disclaimer',
+  '/it-services',
 ];
 
 app.use(express.json());

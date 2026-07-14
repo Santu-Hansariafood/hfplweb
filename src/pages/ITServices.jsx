@@ -14,43 +14,43 @@ import { Reveal, RevealItem, RevealStagger } from "../components/Reveal";
 const PROJECTS = [
   {
     id: "01",
-    title: "Live Project 01",
+    title: "Hansaria Food",
     type: "Business Website",
     summary:
       "Responsive layout, modern sections and a clean conversion-focused presentation.",
-    href: "",
+    href: "https://bid.hansariafood.in",
   },
   {
     id: "02",
-    title: "Live Project 02",
-    type: "Landing Page",
+    title: "Rate & Sauda Management",
+    type: "Business Webapplication",
     summary:
       "Fast-loading structure designed for clear messaging, trust and strong first impressions.",
-    href: "",
+    href: "https://hansariafood.in",
   },
   {
     id: "03",
-    title: "Live Project 03",
-    type: "Web Application",
+    title: "Hansaria Food",
+    type: "Business Website",
     summary:
       "Structured user flows, polished interface blocks and scalable frontend composition.",
-    href: "",
+    href: "https://hansariafood.com",
   },
   {
     id: "04",
-    title: "Live Project 04",
+    title: "Creadent Dental Clinic",
     type: "Portfolio Build",
     summary:
       "Minimal visual system with premium motion, clarity and strong mobile responsiveness.",
-    href: "",
+    href: "https://creadentsmiles.com",
   },
   {
     id: "05",
-    title: "Live Project 05",
+    title: "Kanak Retail",
     type: "Custom Frontend",
     summary:
       "Purpose-built presentation layer ready for your final live deployment link.",
-    href: "",
+    href: "https://kanakretail.com",
   },
 ];
 

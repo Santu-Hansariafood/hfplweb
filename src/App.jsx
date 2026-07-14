@@ -40,6 +40,7 @@ const prefetchOnIdle = () => {
       import("./pages/PrivacyPolicy");
       import("./pages/Disclaimer");
       import("./pages/TermsOfUse");
+      import("./pages/ITServices");
     }, 2000);
   }
 };
