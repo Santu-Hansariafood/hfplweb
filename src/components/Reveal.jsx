@@ -24,11 +24,11 @@ export const Reveal = ({
   );
 };
 
-export const RevealStagger = ({ children, className = "" }) => (
+export const RevealStagger = ({ children, className = "", once = true }) => (
   <m.div
     initial="hidden"
     whileInView="visible"
-    viewport={{ once: true, margin: "-80px 0px" }}
+    viewport={{ once, margin: "-80px 0px" }}
     variants={{
       hidden: {},
       visible: { transition: { staggerChildren: 0.1, delayChildren: 0.05 } },
