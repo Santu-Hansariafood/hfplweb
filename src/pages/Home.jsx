@@ -459,8 +459,8 @@ const Home = () => {
           </div>
           <div className="lg:col-span-8 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-y-6 gap-x-4">
             {CLIENTS.slice(0, 8).map((c) => (
-              <div key={c} className="text-sm text-[#4A4A4A] tracking-wider">
-                {c}
+              <div key={c.name} className="text-sm text-[#4A4A4A] tracking-wider">
+                {c.name}
               </div>
             ))}
           </div>
