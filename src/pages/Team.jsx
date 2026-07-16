@@ -67,14 +67,16 @@ const FeaturedCard = ({ member }) => (
           </span>
           <div className="flex gap-2">
             <a
-              href="#"
+              href={member.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
               aria-label="LinkedIn"
               className="p-2 border border-[#FDFBF7]/25 hover:bg-[#C48D3F] hover:border-[#C48D3F] hover:-translate-y-1 transition-all duration-300"
             >
               <Link size={13} />
             </a>
             <a
-              href="#"
+              href={`mailto:${member.email}`}
               aria-label="Email"
               className="p-2 border border-[#FDFBF7]/25 hover:bg-[#C48D3F] hover:border-[#C48D3F] hover:-translate-y-1 transition-all duration-300"
             >
@@ -164,14 +166,16 @@ const MemberCard = ({ member, index }) => (
         </span>
         <div className="flex gap-2 text-[#4A4A4A]">
           <a
-            href="#"
+            href={member.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
             aria-label="LinkedIn"
             className="p-2 border border-[#E5E0D8] hover:text-[#C48D3F] hover:border-[#C48D3F] hover:-translate-y-1 transition-all duration-300"
           >
             <Link size={13} />
           </a>
           <a
-            href="#"
+            href={`mailto:${member.email}`}
             aria-label="Email"
             className="p-2 border border-[#E5E0D8] hover:text-[#C48D3F] hover:border-[#C48D3F] hover:-translate-y-1 transition-all duration-300"
           >

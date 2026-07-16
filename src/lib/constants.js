@@ -125,6 +125,8 @@ export const TEAM = [
     photo:
       "https://images.unsplash.com/photo-1560250097-0b93528c311a?crop=faces&fit=crop&w=600&h=600&q=80",
     level: 0,
+    email: "gopal@hansariafood.com",
+    linkedin: "https://www.linkedin.com/in/gopal-agarwal-835889a/",
   },
   {
     name: "Sunita Agarwalla",
@@ -133,6 +135,8 @@ export const TEAM = [
     photo:
       "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?crop=faces&fit=crop&w=600&h=600&q=80",
     level: 1,
+    email: "sunita@hansariafood.com",
+    linkedin: "#",
   },
   {
     name: "Prince Surana",
@@ -141,6 +145,8 @@ export const TEAM = [
     photo:
       "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?crop=faces&fit=crop&w=600&h=600&q=80",
     level: 1,
+    email: "prince@hansariafood.com",
+    linkedin: "#",
   },
   {
     name: "Uttam Das",
@@ -149,6 +155,8 @@ export const TEAM = [
     photo:
       "https://images.unsplash.com/photo-1580489944761-15a19d654956?crop=faces&fit=crop&w=600&h=600&q=80",
     level: 1,
+    email: "uttam@hansariafood.com",
+    linkedin: "#",
   },
 ];
 
