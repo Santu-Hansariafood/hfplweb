@@ -7,6 +7,12 @@ export const COMPANY = {
   address: "Kolkata, West Bengal, India",
   logo: "/logo.png",
   slogan: "Farm 2 Factory",
+  social: {
+    facebook: "https://www.facebook.com/profile.php?id=100087874624812",
+    instagram: "https://www.instagram.com/hansaria_food/",
+    linkedin: "https://www.linkedin.com/company/hansaria-food-pvt-ltd/",
+    youtube: "https://www.youtube.com/@hansariafood",
+  },
 };
 
 export const NAV_LINKS = [
