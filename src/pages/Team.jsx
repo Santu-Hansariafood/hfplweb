@@ -3,6 +3,7 @@ import { TEAM } from "../lib/constants";
 import { Link, Mail, Sparkles, Quote } from "lucide-react";
 import { m } from "framer-motion";
 import { Reveal } from "../components/Reveal";
+import { optimizeImageUrl, generateSrcset } from "../lib/utils";
 
 const EXPERTISE = {
   "Gopal Agarwal": ["Risk", "Origination", "Strategy"],
@@ -23,8 +24,12 @@ const FeaturedCard = ({ member }) => (
     <div className="grid grid-cols-1 md:grid-cols-5 h-full">
       <div className="md:col-span-3 relative overflow-hidden aspect-[4/5] md:aspect-auto md:min-h-[520px]">
         <img
-          src={member.photo}
+          src={optimizeImageUrl(member.photo, { width: 800, quality: 75 })}
+          srcSet={generateSrcset(member.photo, [400, 600, 800])}
+          sizes="(max-width: 768px) 100vw, 60vw"
           alt={member.name}
+          width={800}
+          height={1000}
           decoding="async"
           className="w-full h-full object-cover transition-transform duration-1400 ease-custom group-hover:scale-105"
         />
@@ -121,8 +126,12 @@ const MemberCard = ({ member, index }) => (
     <span className="absolute top-0 left-0 right-0 h-[3px] bg-[#C48D3F] scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-700 ease-custom z-10" />
     <div className="relative aspect-[4/5] overflow-hidden">
       <img
-        src={member.photo}
+        src={optimizeImageUrl(member.photo, { width: 600, quality: 75 })}
+        srcSet={generateSrcset(member.photo, [300, 450, 600])}
+        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
         alt={member.name}
+        width={600}
+        height={750}
         loading="lazy"
         decoding="async"
         className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1200 ease-custom group-hover:scale-110"

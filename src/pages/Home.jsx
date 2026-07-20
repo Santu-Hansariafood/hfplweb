@@ -12,6 +12,7 @@ import {
 } from "../lib/constants";
 import { Reveal, RevealStagger, RevealItem } from "../components/Reveal";
 import { CountUp } from "../components/CountUp";
+import { optimizeImageUrl, generateSrcset } from "../lib/utils";
 
 const HERO_IMG =
   "https://images.unsplash.com/photo-1593455071238-92dd081a39b1?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA2MDV8MHwxfHNlYXJjaHwxfHx3aGVhdCUyMGZpZWxkJTIwaGFydmVzdCUyMHN1bnNldHxlbnwwfHx8fDE3ODI3OTYyNzV8MA&ixlib=rb-4.1.0&q=85";
@@ -25,8 +26,12 @@ const Home = () => {
       <section className="relative min-h-[100svh] flex items-end pt-28 pb-40 lg:pb-44 overflow-hidden grain-overlay bg-[#1A1A1A]">
         <div className="absolute inset-0 z-0">
           <img
-            src={HERO_IMG}
+            src={optimizeImageUrl(HERO_IMG, { width: 1920, quality: 80 })}
+            srcSet={generateSrcset(HERO_IMG)}
+            sizes="100vw"
             alt="Wheat field at golden hour"
+            width={1920}
+            height={1080}
             loading="eager"
             fetchPriority="high"
             decoding="async"
@@ -252,8 +257,12 @@ const Home = () => {
 
                   <div className="relative aspect-[5/4] overflow-hidden">
                     <img
-                      src={c.image}
+                      src={optimizeImageUrl(c.image, { width: 800, quality: 75 })}
+                      srcSet={generateSrcset(c.image, [400, 600, 800])}
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                       alt={c.name}
+                      width={800}
+                      height={640}
                       loading="lazy"
                       decoding="async"
                       className="w-full h-full object-cover transition-transform duration-1400 ease-custom group-hover:scale-125"
@@ -321,8 +330,12 @@ const Home = () => {
               >
                 <div className="aspect-[4/3] overflow-hidden">
                   <img
-                    src={s.image}
+                    src={optimizeImageUrl(s.image, { width: 800, quality: 75 })}
+                    srcSet={generateSrcset(s.image, [400, 600, 800])}
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     alt={s.title}
+                    width={800}
+                    height={600}
                     loading="lazy"
                     decoding="async"
                     className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-900 group-hover:scale-110"
@@ -470,8 +483,14 @@ const Home = () => {
       <section className="relative px-6 md:px-12 lg:px-24 py-24 lg:py-32 grain-overlay bg-[#1A1A1A] overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
-            src={TEAM_IMG}
+            src={optimizeImageUrl(TEAM_IMG, { width: 1920, quality: 75 })}
+            srcSet={generateSrcset(TEAM_IMG)}
+            sizes="100vw"
             alt=""
+            width={1920}
+            height={1080}
+            loading="lazy"
+            decoding="async"
             className="w-full h-full object-cover opacity-50"
           />
           <div className="absolute inset-0 bg-[#1A1A1A]/70" />

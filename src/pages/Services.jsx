@@ -15,6 +15,7 @@ import {
 import { m, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { Reveal, RevealStagger, RevealItem } from "../components/Reveal";
+import { optimizeImageUrl, generateSrcset } from "../lib/utils";
 
 const SERVICE_ICONS = [Globe2, LineChart, Handshake];
 const STEP_ICONS = {
@@ -35,8 +36,12 @@ const ParallaxImage = ({ src, alt }) => {
   return (
     <div ref={ref} className="aspect-[4/3] overflow-hidden relative">
       <m.img
-        src={src}
+        src={optimizeImageUrl(src, { width: 1200, quality: 75 })}
+        srcSet={generateSrcset(src)}
+        sizes="(max-width: 1024px) 100vw, 50vw"
         alt={alt}
+        width={1200}
+        height={900}
         loading="lazy"
         decoding="async"
         style={{ y, scale }}
@@ -215,7 +220,7 @@ const Services = () => {
           </div>
 
           <RevealStagger className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6 relative">
-            {steps.map((step, i) => {
+            {steps.map((step, _i) => {
               const Icon = STEP_ICONS[step.n];
               return (
                 <RevealItem key={step.n}>

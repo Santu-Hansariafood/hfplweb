@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { ArrowUpRight, Sparkles } from "lucide-react";
 import { m } from "framer-motion";
 import { Reveal, RevealStagger, RevealItem } from "../components/Reveal";
+import { optimizeImageUrl, generateSrcset } from "../lib/utils";
 
 const SHAPES = [
   { shape: "shape-leaf", accent: "#C48D3F", ring: true }, // Maize
@@ -75,8 +76,12 @@ const CommodityCard = ({ c, i }) => {
               className={`${cfg.shape} w-[280px] h-[380px] sm:w-[320px] sm:h-[420px] lg:w-[360px] lg:h-[460px] relative shimmer-overlay bg-[#F2F0EA]`}
             >
               <img
-                src={c.image}
+                src={optimizeImageUrl(c.image, { width: 600, quality: 75 })}
+                srcSet={generateSrcset(c.image, [300, 450, 600])}
+                sizes="(max-width: 1024px) 100vw, 40vw"
                 alt={c.name}
+                width={600}
+                height={800}
                 loading="lazy"
                 decoding="async"
                 className="w-full h-full object-cover transition-transform duration-1400 ease-custom group-hover:scale-125"

@@ -3,6 +3,7 @@ import { STATS } from "../lib/constants";
 import { Link } from "react-router-dom";
 import { Reveal, RevealStagger, RevealItem } from "../components/Reveal";
 import { CountUp } from "../components/CountUp";
+import { optimizeImageUrl, generateSrcset } from "../lib/utils";
 
 const TEAM_IMG =
   "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1NzZ8MHwxfHNlYXJjaHwyfHxjb3Jwb3JhdGUlMjB0ZWFtJTIwbWVldGluZyUyMG9mZmljZXxlbnwwfHx8fDE3ODI3OTYyODV8MA&ixlib=rb-4.1.0&q=85";
@@ -24,8 +25,12 @@ const About = () => {
           <div className="lg:col-span-6 overflow-hidden">
             <Reveal>
               <img
-                src={TEAM_IMG}
+                src={optimizeImageUrl(TEAM_IMG, { width: 1200, quality: 75 })}
+                srcSet={generateSrcset(TEAM_IMG)}
+                sizes="(max-width: 1024px) 100vw, 50vw"
                 alt="Team"
+                width={1200}
+                height={800}
                 loading="lazy"
                 decoding="async"
                 className="w-full h-[560px] object-cover hover:scale-105 transition-transform duration-1200 ease-custom"
@@ -134,8 +139,12 @@ const About = () => {
       <section className="relative px-6 md:px-12 lg:px-24 py-24 lg:py-32 grain-overlay bg-[#1A1A1A] overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
-            src={SILO}
+            src={optimizeImageUrl(SILO, { width: 1920, quality: 75 })}
+            srcSet={generateSrcset(SILO)}
+            sizes="100vw"
             alt=""
+            width={1920}
+            height={1080}
             loading="lazy"
             decoding="async"
             className="w-full h-full object-cover opacity-50"
