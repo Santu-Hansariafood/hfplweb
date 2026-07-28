@@ -123,7 +123,8 @@ export const TEAM = [
     role: "Director and Founder",
     bio: "Two decades in physical commodities. Architect of the firm's risk and logistics playbook.",
     photo:
-      "https://images.unsplash.com/photo-1560250097-0b93528c311a?crop=faces&fit=crop&w=600&h=600&q=80",
+    "/team/gopal.png",
+      // "https://images.unsplash.com/photo-1560250097-0b93528c311a?crop=faces&fit=crop&w=600&h=600&q=80",
     level: 0,
     email: "gopal@hansariafood.com",
     linkedin: "https://www.linkedin.com/in/gopal-agarwal-835889a/",
@@ -133,7 +134,8 @@ export const TEAM = [
     role: "Head — Trading Desk",
     bio: "Oil seeds and feed supplement specialist. Former arbitrator with the Solvent Extractors' Association.",
     photo:
-      "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?crop=faces&fit=crop&w=600&h=600&q=80",
+    "/team/sunita.png",
+      // "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?crop=faces&fit=crop&w=600&h=600&q=80",
     level: 1,
     email: "sunita@hansariafood.com",
     linkedin: "#",
@@ -153,7 +155,8 @@ export const TEAM = [
     role: "Head — Finance",
     bio: "Manages the financial aspects of our operations, ensuring compliance and optimal resource allocation.",
     photo:
-      "https://images.unsplash.com/photo-1580489944761-15a19d654956?crop=faces&fit=crop&w=600&h=600&q=80",
+    "/team/uttam.png",
+      // "https://images.unsplash.com/photo-1580489944761-15a19d654956?crop=faces&fit=crop&w=600&h=600&q=80",
     level: 1,
     email: "uttam@hansariafood.com",
     linkedin: "#",
