@@ -39,18 +39,26 @@ const PROJECTS = [
   {
     id: "04",
     title: "Creadent Dental Clinic",
-    type: "Portfolio Build",
+    type: "Medical Application",
     summary:
-      "Minimal visual system with premium motion, clarity and strong mobile responsiveness.",
+      "A medical application for dental clinic management, including patient records, appointment scheduling, and payment processing.",
     href: "https://creadentsmiles.com",
   },
   {
     id: "05",
     title: "Kanak Retail",
-    type: "Custom Frontend",
+    type: "E-Commerce Website",
     summary:
-      "Purpose-built presentation layer ready for your final live deployment link.",
+      "A fully functional e-commerce website with a user-friendly interface and a range of products.",
     href: "https://kanakretail.com",
+  },
+  {
+    id: "06",
+    title: "HF Connect",
+    type: "Chating Application",
+    summary:
+      "A real-time chat application for users to connect and communicate with each other.",
+    href: "https://hfconnect.in",
   },
 ];
 
@@ -148,8 +156,8 @@ const ITServices = () => {
       <Breadcrumb current="IT Services" />
       <PageHeader
         eyebrow="IT Services"
-        title="Digital work presented with clarity and confidence."
-        subtitle="A polished showcase page for frontend and website projects, prepared for five live deployments that can be linked in later."
+        title="Delivering high-quality digital solutions with clarity, precision, and confidence."
+        subtitle="Professional digital services including website development, web applications, AI solutions, and software development delivered with clarity, quality, and confidence."
       />
 
       <section className="px-6 md:px-12 lg:px-24 pb-24 lg:pb-32">
@@ -282,7 +290,8 @@ const ITServices = () => {
             <h2 className="font-serif-display text-4xl lg:text-5xl text-[#1A1A1A] tracking-tight leading-tight">
               Designed to feel
               <br />
-              sharp, premium and <em className="italic text-[#C48D3F]">ready.</em>
+              sharp, premium and{" "}
+              <em className="italic text-[#C48D3F]">ready.</em>
             </h2>
           </Reveal>
 
