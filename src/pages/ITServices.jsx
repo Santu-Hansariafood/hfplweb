@@ -185,10 +185,12 @@ const ITServices = () => {
                 </h2>
 
                 <p className="mt-6 max-w-2xl text-base leading-relaxed text-[#FDFBF7]/80">
-                  This section is structured as a premium project gallery for IT
-                  services, web builds and frontend delivery. The design is
-                  already in place, and each project slot is ready for its final
-                  live URL whenever you share it.
+                  Explore our portfolio of custom website development, web
+                  applications, AI-powered solutions, and enterprise software
+                  projects. Every solution is built with modern technologies,
+                  responsive design, high performance, and SEO best practices to
+                  help businesses grow, improve efficiency, and strengthen their
+                  digital presence.
                 </p>
 
                 <div className="mt-10 grid grid-cols-1 gap-px bg-[#FDFBF7]/15 sm:grid-cols-3">
