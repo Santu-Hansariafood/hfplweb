@@ -145,7 +145,8 @@ export const TEAM = [
     role: "Head — Market Analysis",
     bio: "Builds the rail-road-port corridors that keep our cargoes moving on schedule.",
     photo:
-      "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?crop=faces&fit=crop&w=600&h=600&q=80",
+    "/team/prince.png",
+      // "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?crop=faces&fit=crop&w=600&h=600&q=80",
     level: 1,
     email: "prince@hansariafood.com",
     linkedin: "#",
