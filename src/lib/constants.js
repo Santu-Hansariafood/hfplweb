@@ -1,8 +1,8 @@
 export const COMPANY = {
   name: "Hansaria Food",
   tagline: "Bridging Harvests, Building Trust",
-  phone: "+91-83369-24060",
-  phoneRaw: "+918336924060",
+  phone: "+91-83369-24064",
+  phoneRaw: "+918336924064",
   email: "info@hansariafood.com",
   address: "Kolkata, West Bengal, India",
   logo: "/logo.png",

@@ -55,7 +55,7 @@ const sections = [
   },
   {
     heading: "Contact",
-    body: "For any privacy-related question, write to us at info@hansariafood.com or call +91-83369-24060.",
+    body: "For any privacy-related question, write to us at info@hansariafood.com or call +91-83369-24064.",
   },
 ];
 
